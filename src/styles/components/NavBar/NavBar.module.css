@@ -1,0 +1,47 @@
+/* Start Variables */
+:root
+{
+    --main-color-700: #026AA2;
+    --gray-color-400: #AFAFAF;
+    --gray-color-700: #515151;
+    --gray-color-800: #373737;
+    --gray-color-900: #282828;
+}
+/* End Variables */
+
+
+
+
+/* Start NavBar Component */
+nav{
+    
+}
+.nav_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    cursor: pointer;
+}
+.mobile_menu{
+
+}
+.menu{
+    
+}
+.menu ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.menu li{
+    list-style: none;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+.auth_btns{
+
+}
+/* End NavBar Component */

@@ -1,10 +1,13 @@
 import './App.css'
+import NavBar from './components/NavBar/NavBar'
+import LandingPage from './pages/Landing/LandingPage'
 
 function App() {
 
   return (
     <>
-      <h1>السلام عليكم و رحمه الله وبركاته</h1>
+      <NavBar />
+      <LandingPage />
     </>
   )
 }
