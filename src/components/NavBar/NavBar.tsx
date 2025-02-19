@@ -5,8 +5,25 @@ import style from '../../styles/components/NavBar/NavBar.module.css'
 import logo from '../../assets/NavBar/logo.png'
 import menu from '../../assets/NavBar/menu.svg'
 
+// ** Hooks
+import { useState } from 'react'
+
 
 const NavBar = () => {
+
+    const[navOpen, setNavOpen] = useState<boolean>(false)
+    const menuElement = document.getElementById('menu')
+    const toggelNavbar = () => {
+        if(!navOpen&& menuElement && window.innerWidth < 992){
+            menuElement.style.display = 'flex'
+            setNavOpen(true)
+        }
+        else if (navOpen && menuElement){
+            menuElement.style.display = 'none'
+            setNavOpen(false)
+        }
+    }
+
     return (
         <>
             <nav>
@@ -14,10 +31,10 @@ const NavBar = () => {
                     <div className= {style.logo}>
                         <img src= {logo} alt="logo navbar"/>
                     </div>
-                    <div className= {style.mobile_menu}>
+                    <div onClick={toggelNavbar} className= {style.mobile_menu}>
                         <img src= {menu} alt="menu icon navbar"/>
                     </div>
-                    <div className= {style.menu}>
+                    <div className= {style.menu} id='menu'>
                         <ul>
                             <li>نبذة عنّا</li>
                             <li>رفع صورة</li>
