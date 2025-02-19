@@ -6,20 +6,22 @@ import logo from '../../assets/NavBar/logo.png'
 import menu from '../../assets/NavBar/menu.svg'
 
 // ** Hooks
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 
 const NavBar = () => {
 
     const[navOpen, setNavOpen] = useState<boolean>(false)
-    const menuElement = document.getElementById('menu')
+    // ** useRef provides a way to directly access a list item in the DOM.
+    const menuRef = useRef<HTMLDivElement>(null) 
+
     const toggelNavbar = () => {
-        if(!navOpen&& menuElement && window.innerWidth < 992){
-            menuElement.style.display = 'flex'
+        if(!navOpen&& menuRef.current && window.innerWidth < 992){
+            menuRef.current.style.display = 'flex'
             setNavOpen(true)
         }
-        else if (navOpen && menuElement){
-            menuElement.style.display = 'none'
+        else if (navOpen && menuRef.current){
+            menuRef.current.style.display = 'none'
             setNavOpen(false)
         }
     }
@@ -34,7 +36,7 @@ const NavBar = () => {
                     <div onClick={toggelNavbar} className= {style.mobile_menu}>
                         <img src= {menu} alt="menu icon navbar"/>
                     </div>
-                    <div className= {style.menu} id='menu'>
+                    <div className= {style.menu} ref={menuRef}>
                         <ul>
                             <li>نبذة عنّا</li>
                             <li>رفع صورة</li>
