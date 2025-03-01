@@ -22,6 +22,7 @@ export default function NavBar(){
 
     // ** States
     const[navOpen, setNavOpen] = useState<boolean>(false)
+    const [activeItem, setAvtiveItem] = useState<string>('')
     const menuRef = useRef<HTMLDivElement>(null) 
     const toggelNavbar = () => {
         if(!navOpen&& menuRef.current && window.innerWidth < 992){
@@ -38,6 +39,7 @@ export default function NavBar(){
         const sectionId = document.getElementById(id)
         if(sectionId){
             sectionId.scrollIntoView({behavior: 'smooth'});
+            setAvtiveItem(id)
             toggelNavbar();
         }
     }
@@ -53,11 +55,21 @@ export default function NavBar(){
                     </div>
                     <div className= {style.menu} ref={menuRef}>
                         <ul>
-                            <li onClick={()=> {smoothScrollHandler('about-us')}}>نبذة عنّا</li>
-                            <li onClick={()=> {smoothScrollHandler('join-us')}}>انضم لنا</li>
-                            <li onClick={()=> {smoothScrollHandler('our-services')}}>خدماتنا</li>
-                            <li onClick={()=> {smoothScrollHandler('contact-us')}}>تواصل معنا</li>
-                            <li onClick={()=> {smoothScrollHandler('patient-reviews')}}>تقييمات المستخدمين</li>
+                            {[
+                                {id: 'about-us', label: 'نبذة عنّا'},
+                                {id: 'join-us', label: 'انضم لنا'},
+                                {id: 'our-services', label: 'خدمتنا'},
+                                {id: 'contact-us', label: 'تواصل معنا'},
+                                {id: 'patient-reviews', label: 'تقييمات المستخدمين'},
+                            ].map((item)=>
+                                <li
+                                key={item.id}
+                                onClick={() => smoothScrollHandler(item.id)}
+                                className= {activeItem === item.id ? style.active : ''}
+                                >
+                                    {item.label}
+                                </li>
+                            )}
                         </ul>
                     </div>
                     <div className= {style.auth_btns}>
