@@ -3,17 +3,20 @@
 
 
 
+// ** Interface
+interface ISection{
+    sectionId: string;
+}
 
-
-
-const AboutUs = () => {
+export default function AboutUs({sectionId}: ISection) {
     return (
         <>
-            <div style={{textAlign: 'center'}}>
-                AboutUs
-            </div>    
+            <section id = {sectionId}>
+                <div style={{textAlign: 'center', margin: '280px'}}>
+                    AboutUs
+                </div>  
+            </section>  
         </>
     );
 }
 
-export default AboutUs;

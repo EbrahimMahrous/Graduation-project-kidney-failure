@@ -1,14 +1,18 @@
+// ** Render child routes
+import { Outlet } from "react-router-dom";
+// ** Components
+import NavBar from "../components/NavBar/NavBar";
 
 
 
 
 
-const MainLayout = () => {
+export default function MainLayout(){
     return (
-        <div>
-            MainLayout
-        </div>
+        <>
+            <NavBar />
+            <Outlet />
+        </>
     );
 }
 
-export default MainLayout;

@@ -1,20 +1,28 @@
 // ** style
 import style from '../../styles/components/NavBar/NavBar.module.css'
-
+// ** Hooks
+import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 // ** assets
 import logo from '../../assets/NavBar/logo.png'
 import menu from '../../assets/NavBar/menu.svg'
 
-// ** Hooks
-import { useRef, useState } from 'react'
 
 
-const NavBar = () => {
 
+
+export default function NavBar(){
+
+    const navigate = useNavigate()
+
+    // Handlers
+
+    const signInHandler = () => {navigate('/u/sign-in')}
+    const signUpHandler = () => {navigate('/u/sign-up')}
+
+    // ** States
     const[navOpen, setNavOpen] = useState<boolean>(false)
-    // ** useRef provides a way to directly access a list item in the DOM.
     const menuRef = useRef<HTMLDivElement>(null) 
-
     const toggelNavbar = () => {
         if(!navOpen&& menuRef.current && window.innerWidth < 992){
             menuRef.current.style.display = 'flex'
@@ -26,6 +34,13 @@ const NavBar = () => {
         }
     }
 
+    const smoothScrollHandler = (id: string) => {
+        const sectionId = document.getElementById(id)
+        if(sectionId){
+            sectionId.scrollIntoView({behavior: 'smooth'});
+            toggelNavbar();
+        }
+    }
     return (
         <>
             <nav>
@@ -38,16 +53,16 @@ const NavBar = () => {
                     </div>
                     <div className= {style.menu} ref={menuRef}>
                         <ul>
-                            <li>نبذة عنّا</li>
-                            <li>رفع صورة</li>
-                            <li>خدماتنا</li>
-                            <li>تواصل معنا</li>
-                            <li>تقييمات المستخدمين</li>
+                            <li onClick={()=> {smoothScrollHandler('about-us')}}>نبذة عنّا</li>
+                            <li onClick={()=> {smoothScrollHandler('join-us')}}>انضم لنا</li>
+                            <li onClick={()=> {smoothScrollHandler('our-services')}}>خدماتنا</li>
+                            <li onClick={()=> {smoothScrollHandler('contact-us')}}>تواصل معنا</li>
+                            <li onClick={()=> {smoothScrollHandler('patient-reviews')}}>تقييمات المستخدمين</li>
                         </ul>
                     </div>
                     <div className= {style.auth_btns}>
-                        <button>إنشاء حساب</button>
-                        <button>تسجيل دخول</button>
+                        <button onClick={signUpHandler}>إنشاء حساب</button>
+                        <button onClick={signInHandler}>تسجيل دخول</button>
                     </div>
                 </div>
             </nav>
@@ -55,4 +70,3 @@ const NavBar = () => {
     );
 }
 
-export default NavBar;

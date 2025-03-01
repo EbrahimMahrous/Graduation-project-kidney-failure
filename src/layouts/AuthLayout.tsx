@@ -1,13 +1,15 @@
+// ** Render child routes
+import { Outlet } from "react-router-dom";
 
 
 
 
-const AuthLayout = () => {
+
+export default function AuthLayout(){
     return (
-        <div>
-            AuthLayout
-        </div>
+        <>
+            <Outlet />
+        </>
     );
 }
 
-export default AuthLayout;

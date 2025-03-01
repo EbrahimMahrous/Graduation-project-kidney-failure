@@ -3,15 +3,19 @@
 
 
 
+// ** Interface
+interface ISection{
+    sectionId: string;
+}
 
-const Footer = () => {
+export default function Footer({sectionId}: ISection) {
     return (
         <>
-            <div style={{textAlign: 'center'}}>
-                Footer
-            </div> 
+            <section id = {sectionId}>
+                <div style={{textAlign: 'center' , margin: '280px'}}>
+                    Footer
+                </div>  
+            </section>  
         </>
     );
 }
-
-export default Footer;

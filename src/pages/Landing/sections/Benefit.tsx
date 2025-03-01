@@ -3,17 +3,19 @@
 
 
 
+// ** Interface
+interface ISection{
+    sectionId: string;
+}
 
-
-
-const Benefit = () => {
+export default function Benefit({sectionId}: ISection) {
     return (
         <>
-            <div style={{textAlign: 'center'}}>
-                Benefit
-            </div> 
+            <section id = {sectionId}>
+                <div style={{textAlign: 'center' , margin: '280px'}}>
+                    Benefit
+                </div>  
+            </section>  
         </>
     );
 }
-
-export default Benefit;

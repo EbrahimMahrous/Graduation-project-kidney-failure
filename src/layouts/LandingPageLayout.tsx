@@ -1,15 +1,18 @@
+// ** Render child routes
+import { Outlet } from "react-router-dom";
+// ** Components
+import NavBar from "../components/NavBar/NavBar";
 
 
 
 
 
 
-const LandingPageLayout = () => {
+export default function LandingPageLayout(){
     return (
-        <div>
-            LandingPageLayout
-        </div>
+        <>
+            <NavBar />
+            <Outlet />
+        </>
     );
 }
-
-export default LandingPageLayout;

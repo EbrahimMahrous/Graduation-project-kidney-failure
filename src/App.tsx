@@ -1,15 +1,19 @@
+// ** Styles
 import './App.css'
-import NavBar from './components/NavBar/NavBar'
-import LandingPage from './pages/Landing/LandingPage'
+// ** Routers: Import routing configuration
+import Routers from './routers'
 
-function App() {
+
+
+
+
+
+export default function App() {
 
   return (
     <>
-      <NavBar />
-      <LandingPage />
+      <Routers/>
     </>
   )
 }
 
-export default App

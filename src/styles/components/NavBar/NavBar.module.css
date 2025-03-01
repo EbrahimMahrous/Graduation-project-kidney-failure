@@ -12,6 +12,7 @@
 
 
 
+
 /* Start NavBar Component */
 nav{
     width: 100%; 
@@ -54,6 +55,8 @@ nav{
 
 
 
+
+/* Start media query */
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) 
 {
@@ -142,4 +145,5 @@ nav{
 {
 
 }
+/* End media query */
 /* End NavBar Component */

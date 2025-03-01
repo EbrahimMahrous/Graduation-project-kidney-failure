@@ -1,8 +1,4 @@
-
-
-
-
-
+// ** Components
 import AboutUs from './sections/AboutUs';
 import Benefit from './sections/Benefit';
 import ContactUs from './sections/ContactUs';
@@ -11,18 +7,21 @@ import JoinUs from './sections/JoinUs';
 import OurServices from './sections/OurServices';
 import PatientReviews from './sections/PatientReviews';
 
-const LandingPage = () => {
+
+
+
+
+export default function LandingPage(){
     return (
         <>
-        <AboutUs />
-        <JoinUs></JoinUs>
-        <Benefit />
-        <OurServices />
-        <ContactUs />
-        <PatientReviews />
-        <Footer />
+            <AboutUs sectionId='about-us'/>
+            <JoinUs sectionId='join-us'/>
+            <Benefit sectionId='benefit'/>
+            <OurServices sectionId='our-services'/>
+            <ContactUs sectionId='contact-us'/>
+            <PatientReviews sectionId='patient-reviews'/>
+            <Footer sectionId='footer'/>
         </>
     );
 }
 
-export default LandingPage;

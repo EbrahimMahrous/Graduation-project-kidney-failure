@@ -3,18 +3,19 @@
 
 
 
+// ** Interface
+interface ISection{
+    sectionId: string;
+}
 
-
-
-
-const JoinUs = () => {
+export default function JoinUs({sectionId}: ISection) {
     return (
         <>
-            <div style={{textAlign: 'center'}}>
-                JoinUs
-            </div>
+            <section id = {sectionId}>
+                <div style={{textAlign: 'center' , margin: '280px'}}>
+                    JoinUs
+                </div>  
+            </section>  
         </>
     );
 }
-
-export default JoinUs;
