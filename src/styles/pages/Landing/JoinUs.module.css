@@ -6,5 +6,125 @@
     --gray-color-700: #515151;
     --gray-color-800: #373737;
     --gray-color-900: #282828;
+    --white-color: #fff;
+    --font-p: 1.25rem;
+    --font-h3: 1.625rem;
 }
 /* End Variables */
+
+
+
+
+
+
+/* Start JoinUs Section */
+.section{
+
+}
+.section_container{
+    width: 90%;
+    margin: auto;
+    padding: calc(16* 8px) 0px 0px 0px;
+}
+.section_content{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: calc(8 * 4px);
+}
+/* right */
+.join_Us_Photo{
+
+}
+.join_Us_Photo img{
+    margin-top: 18px;
+}
+/* left */
+.join_Us_Text{
+    
+}
+.join_Us_Text h3{
+    font-size: var(--font-h3);
+    color: var(--main-color-700);
+    margin-bottom: 12px;
+}
+.join_Us_Text p{
+    font-size: var(--font-p);
+    margin-bottom: 24px;
+}
+.join_Us_Text button{
+    background-color: var(--main-color-700);
+    padding: 5px calc(16 * 3px);
+    color: var(--white-color);
+    border: 0;
+    cursor: pointer;
+}
+
+
+
+
+
+/* Start Media Query */
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+    .section_content{
+        grid-template-columns: 1fr;
+    }
+    .join_Us_Photo{
+        width: 95%;
+        margin: auto;
+    }
+    .join_Us_Photo img{
+        width: 100%;
+    }
+    .join_Us_Text{
+        text-align: center;
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+    .section_content{
+        grid-template-columns: 1fr;
+    }
+    .join_Us_Photo{
+        width: 90%;
+        margin: auto;
+    }
+    .join_Us_Photo img{
+        width: 100%;
+    }
+    .join_Us_Text{
+        text-align: center;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+    .section_content{
+        grid-template-columns: 1fr;
+    }
+    .join_Us_Photo{
+        width: 80%;
+        margin: auto;
+    }
+    .join_Us_Photo img{
+        width: 100%;
+    }
+    .join_Us_Text{
+        text-align: center;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
+}
+/* End Media Query */
+/* End JoinUs Section */
