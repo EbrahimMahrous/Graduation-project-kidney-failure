@@ -6,5 +6,143 @@
     --gray-color-700: #515151;
     --gray-color-800: #373737;
     --gray-color-900: #282828;
+    --white-color: #fff;
+    --font-p: 1.25rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
 }
 /* End Variables */
+
+
+
+
+
+/* Start Benefits */
+.section{
+
+}
+.benefit_container{
+    width: 90%;
+    margin: auto;
+    padding: calc(16* 8px) 0px 0px 0px;
+}
+.benefit_content{
+
+}
+/* Top */
+.benefit_Title{
+    text-align: center;
+}
+.benefit_Title h3{
+    font-size: var(--font-h3);
+    color: var(--main-color-700);
+}
+.benefit_Title p{
+    font-size: var(--font-p);
+}
+/* Bottom ==> one - two*/
+.benefit_services{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 16px;
+}
+/* one */
+.benefit_photo{
+    margin-top: calc(8*6px);
+}
+.benefit_photo img{
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+/* two */
+.benefit_items{
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.item{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+.item img{
+    width: calc(8*7px);
+}
+.item .item_txt{
+
+}
+.item .item_txt h4{
+    font-size: var(--font-h4);
+}
+.item .item_txt p{
+    font-size: var(--font-p);
+}
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+    .benefit_Title h3, .benefit_Title p {
+        text-align: center;
+    }
+    .benefit_services{
+        grid-template-columns: 1fr;
+    }
+    .benefit_photo img{
+        width: 100%;
+    }
+    .item{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 32px;
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+    .benefit_services{
+        grid-template-columns: 1fr;
+    }
+    .benefit_photo img{
+        display: block;
+        width: 85%;
+        margin: auto;
+    }
+    .item{
+        margin-bottom: 32px;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+    .benefit_services{
+        grid-template-columns: 1fr;
+    }
+    .benefit_photo img {
+        display: block;
+        width: 75%;
+        margin: auto;
+    }
+    .item{
+        margin-bottom: 32px;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+    .benefit_services{
+        grid-template-columns: 1fr 1fr;
+    }
+    .benefit_photo img {
+        width: 100%;
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
+}
+
+/* End Benefits */
