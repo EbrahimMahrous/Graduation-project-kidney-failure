@@ -14,7 +14,7 @@ interface ISection{
 
 export default function JoinUs({sectionId}: ISection) {
     const navigate = useNavigate();
-    const signUpHandler = () => {navigate('/u/sign-up')}
+    const welcomeHandler = () => {navigate('/u')}
     return (
         <>
             <section className= {style.section} id = {sectionId}>
@@ -26,7 +26,7 @@ export default function JoinUs({sectionId}: ISection) {
                         <div className= {style.join_Us_Text}>
                             <h3>رفع الصورة لتحليل فوري ودعم مباشر:</h3>
                             <p>يمكنك رفع صورة الأشعة الطبية الخاصة بك والحصول على تقرير سريع حول حالتك الصحية. يساعدك هذا التحليل في فهم حالة الكلى بشكل أفضل وتحديد الخطوات المناسبة. إذا كنت ترغب في استشارات إضافية ودعم مستمر، يمكنك إنشاء حساب للحصول هذه الخدمات.</p>
-                            <button onClick={signUpHandler}>إنشاء حساب</button>
+                            <button onClick={welcomeHandler}>انضم لنا</button>
                         </div>
                     </div>
                 </div>  

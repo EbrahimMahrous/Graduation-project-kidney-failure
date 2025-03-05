@@ -7,6 +7,10 @@
     --gray-color-800: #373737;
     --gray-color-900: #282828;
     --white-color: #fff;
+    --font-p: 1.25rem;
+    --txt-btn: 1rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
 }
 /* End Variables */
 
@@ -66,6 +70,7 @@ nav{
     color: var(--white-color);
     border: 0;
     cursor: pointer;
+    font-size: var(--txt-btn);
 }
 .auth_btns button:nth-child(2){
     background-color: var(--white-color);

@@ -191,7 +191,7 @@
 @media (min-width: 1200px) 
 {
     .contactUs_photo img{
-
+        width: 100%;
     }
 }
 /* End ContactUs */
