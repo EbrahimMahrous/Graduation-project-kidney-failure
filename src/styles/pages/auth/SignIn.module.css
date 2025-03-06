@@ -1,0 +1,164 @@
+/* Start Variables */
+:root
+{
+    --main-color-700: #026AA2;
+    --second-color: #EFF9FF;
+    --gray-color-400: #AFAFAF;
+    --gray-color-700: #515151;
+    --gray-color-800: #373737;
+    --gray-color-900: #282828;
+    --white-color: #fff;
+    --font-p: 1.25rem;
+    --txt-btn: 1rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
+}
+/* End Variables */
+
+
+
+
+
+
+/* Start SignIn */
+.signin_container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signin_content{
+    width: 65%;
+    margin: auto;
+}
+/* Title */
+.signin_content h3{
+    font-size: var(--font-h3);
+    text-align: center;
+    margin-bottom: 24px;
+}
+/* Form */
+/* 1 & 2 */
+form div:first-child, form div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-bottom: 16px;
+}
+input{
+    padding: 12px 8px;
+    border: 1px solid var(--gray-color-700);
+    border-radius: 4px;
+}
+input:focus {
+    border: 1px solid var(--main-color-700);
+    outline: none;
+}
+/* 3 */
+.signin_checkbox{
+    display: flex;
+    justify-content: space-between;
+}
+.signin_checkbox div:first-child{
+    display: block;
+}
+.signin_checkbox div:first-child input{
+    border: 1px solid var(--main-color-700);
+    margin-left: 8px;
+}
+.signin_checkbox div:first-child label{
+    color: var(--main-color-700);
+}
+.signin_checkbox p{
+    cursor: pointer;
+}
+.signin_btn button{
+    background-color: var(--main-color-700);
+    padding: 5px 18px;
+    color: var(--white-color);
+    border: 0;
+    cursor: pointer;
+    font-size: var(--txt-btn);
+    width: 100%;
+    margin: 24px 0px;
+    border-radius: 4px;
+    text-align: center;
+}
+/* Create acount */
+.signin_create_account{
+
+}
+.signin_create_account p{
+    text-align: center;
+}
+.signin_create_account p span{
+    color: var(--main-color-700);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.sigin_social{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 16px;
+}
+.sigin_social img{
+    margin: 4px 0px;
+    padding: 0.5rem 3rem;
+    border-radius: 4px;
+    border: 1px solid var(--main-color-700);
+    cursor: pointer;
+    margin: 16px 0px 0px 0px;
+}
+p span{
+    margin-top: 160px;
+}
+
+
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+    .signin_container{
+        height: 100vh;
+    }
+    .signin_content{
+        width: 100%;
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+    .signin_container{
+        height: 100vh;
+    }
+    .signin_content{
+        width: 100%;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+    .signin_container{
+        height: 100vh;
+    }
+    .signin_content{
+        width: 100%;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
+}
+/* End SignIn */

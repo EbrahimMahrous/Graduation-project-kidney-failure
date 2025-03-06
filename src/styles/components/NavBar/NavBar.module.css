@@ -59,10 +59,16 @@ nav{
     border-bottom: 2px solid var(--main-color-700);
     font-weight: bold;
 }
-
+.auth_btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 .auth_btns button{
-    padding: 4px;
+    padding: 10px;
     margin: 0px 2px;
+    width: auto;
 }
 .auth_btns button:first-child, .auth_btns button:nth-child(2){
     background-color: var(--main-color-700);

@@ -45,7 +45,7 @@
         grid-template-columns: 1fr;
     }
     .auth_aside{
-        height: 50vh;
+        height: 100vh;
     }
 }
 /* Small devices (landscape phones, 576px and up) */
@@ -55,7 +55,7 @@
         grid-template-columns: 1fr;
     }
     .auth_aside{
-        height: 50vh;
+        height: 100vh;
     }
 }
 /* Medium devices (tablets, 768px and up) */
@@ -65,7 +65,7 @@
         grid-template-columns: 1fr;
     }
     .auth_aside{
-        height: 50vh;
+        height: 100vh;
     }
 }
 /* Large devices (desktops, 992px and up) */
