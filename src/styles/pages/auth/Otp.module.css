@@ -1,0 +1,133 @@
+/* Start Variables */
+:root
+{
+    --main-color-700: #026AA2;
+    --second-color: #EFF9FF;
+    --gray-color-400: #AFAFAF;
+    --gray-color-700: #515151;
+    --gray-color-800: #373737;
+    --gray-color-900: #282828;
+    --white-color: #fff;
+    --font-p: 1.25rem;
+    --txt-btn: 1rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
+}
+/* End Variables */
+
+/* Start Otp */
+.otp_container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.otp_content{
+    width: 65%;
+    margin: auto;
+}
+/* Title */
+.otp_title{
+    text-align: center;
+}
+.otp_title img{
+
+}
+.otp_title h3{
+    font-size: var(--font-h3);
+}
+.otp_title p{
+    font-size: var(--font-p);
+}
+.otp_title h4{
+    
+}
+/* Form */
+.otp_form{
+    
+}
+.otp_form h4{
+    text-align: center;
+}
+.otp_code{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.otp_code input{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: var(--font-p);
+    border: 1px solid var(--gray-color-400);
+    border-radius: 5px;
+}
+.otp_code input:focus{
+    border: 1px solid var(--main-color-700);
+    outline: none;
+}
+.otp_form button{
+    background-color: var(--main-color-700);
+    padding: 5px 18px;
+    color: var(--white-color);
+    border: 0;
+    cursor: pointer;
+    font-size: var(--txt-btn);
+    width: 100%;
+    margin: 24px 0px;
+    border-radius: 4px;
+    text-align: center;
+}
+.otp_form p{
+    text-align: center;
+}
+.otp_form p a{
+    color: var(--main-color-700);
+    font-weight: 700;
+}
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+    .otp_container{
+        height: 100vh;
+    }
+    .otp_content{
+        width: 100%;
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+    .otp_container{
+        height: 100vh;
+    }
+    .otp_content{
+        width: 100%;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+    .otp_container{
+        height: 100vh;
+    }
+    .otp_content{
+        width: 80%;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+    .otp_content{
+        width: 100%;
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
+}
+/* End Otp */

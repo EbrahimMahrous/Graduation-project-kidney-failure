@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function ForgetPassword(){
-    const navagite = useNavigate()
+    const navigate = useNavigate()
     const otpHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        navagite('/u/otp')
+        navigate('/u/otp')
     }
     return (
         <>
