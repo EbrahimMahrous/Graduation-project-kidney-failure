@@ -46,14 +46,26 @@ form div:first-child, form div:nth-child(2){
     text-align: right;
     margin-bottom: 16px;
 }
-input{
+.signin_form div input{
     padding: 12px 8px;
     border: 1px solid var(--gray-color-700);
     border-radius: 4px;
 }
-input:focus {
+.signin_form input:focus {
     border: 1px solid var(--main-color-700);
     outline: none;
+}
+.signin_password{
+    position: relative;
+}
+.signin_password span{
+    position: absolute;
+    left: 10px;
+    top: 57px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--gray-color-400);
+    font-size: 20px;
 }
 /* 3 */
 .signin_checkbox{

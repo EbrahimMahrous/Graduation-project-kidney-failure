@@ -34,12 +34,12 @@ export default function SignIn(){
                 <div className= {style.signin_content}>
                     {/* title */}
                     <h3>تسجيل الدخول</h3>
-                    <form action="">
+                    <form className= {style.signin_form} action="">
                         <div>
                             <label htmlFor="">البريد الالكتروني</label>
                             <input type="email" name="" id="" placeholder='ادخل البريد الالكتروني' />
                         </div>
-                        <div style={{ position: "relative" }}>
+                        <div className= {style.signin_password}>
                             <label htmlFor="password">كلمه المرور</label>
                             <input 
                                 type= {showPassword? 'text': 'password'} 
@@ -47,20 +47,9 @@ export default function SignIn(){
                                 id="password" 
                                 placeholder='ادخل كلمه المرور'
                                 />
-                                <span
-                                onClick={togglePassword} 
-                                style={{
-                                    position: "absolute",
-                                    left: "10px",
-                                    top: "57px",
-                                    transform: "translateY(-50%)",
-                                    cursor: "pointer",
-                                    color: "#777",
-                                    fontSize: '20px'
-                                }}
-                                >
-                                {showPassword? <FaEye/> : <FaEyeSlash/> }</span>
-
+                                <span onClick={togglePassword} >
+                                    {showPassword? <FaEye/> : <FaEyeSlash/> }
+                                </span>
                         </div>
                         <div className= {style.signin_checkbox}>
                             <div>
