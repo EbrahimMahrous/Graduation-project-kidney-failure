@@ -1,0 +1,39 @@
+/* Start Variables */
+:root
+{
+    --main-color-700: #026AA2;
+    --gray-color-400: #AFAFAF;
+    --gray-color-700: #515151;
+    --gray-color-800: #373737;
+    --gray-color-900: #282828;
+    --white-color: #fff;
+    --font-p: 1.25rem;
+    --txt-btn: 1rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
+}
+/* End Variables */
+
+
+
+
+
+/* Start Header Auth Component */
+.header_auth_title{
+    text-align: center;
+}
+.header_auth_title img{
+
+}
+.header_auth_title h3{
+    font-size: var(--font-h3);
+    margin-bottom: 16px;
+}
+.header_auth_title p{
+    font-size: var(--font-p);
+    /* margin-bottom: 32px; */
+}
+.header_auth_title h4{
+    margin-bottom: 32px;
+}
+/* End Header Auth Component */

@@ -31,19 +31,8 @@
     width: 75%;
     margin: auto;
 }
-/* Title */
-.done_title{
-    text-align: center;
-}
-.done_title img{
-
-}
-.done_title h3{
-    font-size: var(--font-h3);
-}
-.done_title p{
-    font-size: var(--font-p);
-}
+/* Title Component Here*/
+/*  */
 .done_content button{
     background-color: var(--main-color-700);
     padding: 5px 18px;

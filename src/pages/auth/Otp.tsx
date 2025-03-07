@@ -3,6 +3,7 @@ import style from '../../styles/pages/auth/Otp.module.css'
 // ** Assets
 import emailIcon from '../../assets/auth/otp/email-icon.png'
 import { useNavigate } from 'react-router-dom';
+import HeaderAuth from '../../components/auth/HeaderAuth';
 
 
 
@@ -17,12 +18,12 @@ export default function Otp(){
         <>
             <div className= {style.otp_container}>
                 <div className= {style.otp_content}>
-                    <div className= {style.otp_title}>
-                        <img src= {emailIcon} alt="" />
-                        <h3>التحقق من الكود</h3>
-                        <p>الرجاء ادخال الكود الذي ارسلناه الي البريد الالكتروني </p>
-                        <h4>klity******@gamil.com</h4>
-                    </div>
+                    <HeaderAuth
+                        img={{ src: emailIcon, alt: 'Email Icon' }}
+                        headLine='التحقق من الكود'
+                        p='الرجاء ادخال الكود الذي ارسلناه الي البريد الالكتروني '
+                        subTitle='klity******@gamil.com'
+                    />
                     <form className= {style.otp_form} action="">
                         <h4>00:30</h4>
                         <div className= {style.otp_code}>

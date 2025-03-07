@@ -1,0 +1,53 @@
+:root
+{
+    --main-color-700: #026AA2;
+    --gray-color-400: #AFAFAF;
+    --gray-color-700: #515151;
+    --gray-color-800: #373737;
+    --gray-color-900: #282828;
+    --white-color: #fff;
+    --font-p: 1.25rem;
+    --txt-btn: 1rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
+}
+/* End Variables */
+
+
+
+
+/* Start Platform Auth Component */
+.platform_auth_container{
+
+}
+.platform_auth_container p:first-child{
+    text-align: center;
+}
+.platform_auth_icons{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 16px;
+}
+.platform_auth_icons img{
+    margin: 4px 0px;
+    padding: 0.5rem 3rem;
+    border-radius: 4px;
+    border: 1px solid var(--main-color-700);
+    cursor: pointer;
+    margin: 16px 0px 0px 0px;
+}
+.tail{
+    text-align: center;
+}
+.tail span{
+    color: var(--main-color-700);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 160px;
+}
+/* End Platform Auth Component */

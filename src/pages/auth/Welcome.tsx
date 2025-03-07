@@ -1,6 +1,10 @@
 // ** Styles
-import { useNavigate } from 'react-router-dom'
 import style from '../../styles/pages/auth/Welcome.module.css'
+//  Hooks
+import { useNavigate } from 'react-router-dom'
+// Components
+import HeaderAuth from '../../components/auth/HeaderAuth'
+
 
 
 
@@ -17,10 +21,10 @@ export default function Welcome(){
         <>
             <div className= {style.welcome_container}>
                 <div className= {style.welcome_content}>
-                    <div className= {style.welcome_title}>
-                        <h3>مرحباً بك في كليّتِك </h3>
-                        <p>للحصول على تجربة مميزة، يمكنك تسجيل الدخول أو إنشاء حساب جديد</p>
-                    </div>
+                    <HeaderAuth
+                        headLine='مرحباً بك في كليّتِك '
+                        p='للحصول على تجربة مميزة، يمكنك تسجيل الدخول أو إنشاء حساب جديد'
+                    />
                     <div className= {style.welcome_btns}>
                         <button onClick={signUpHandler}>إنشاء حساب</button>
                         <button onClick={signInHandler}>تسجيل دخول</button>

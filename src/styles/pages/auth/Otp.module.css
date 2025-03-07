@@ -27,22 +27,7 @@
     width: 65%;
     margin: auto;
 }
-/* Title */
-.otp_title{
-    text-align: center;
-}
-.otp_title img{
-
-}
-.otp_title h3{
-    font-size: var(--font-h3);
-}
-.otp_title p{
-    font-size: var(--font-p);
-}
-.otp_title h4{
-    
-}
+/* Title Component Here*/
 /* Form */
 .otp_form{
     
