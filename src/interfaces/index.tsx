@@ -13,6 +13,7 @@ export interface IInputElement extends InputHTMLAttributes<HTMLInputElement>{
         alt: string,
     },
     error?: string,
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 

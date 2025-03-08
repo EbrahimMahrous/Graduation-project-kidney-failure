@@ -10,7 +10,8 @@ import HeaderAuth from "../../components/auth/HeaderAuth";
 export default function Done() {
   // ** Defaults
   const navigate = useNavigate();
-  const signInHandler = () => {
+  const signInHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
     navigate("/u/sign-in");
   };
   return (

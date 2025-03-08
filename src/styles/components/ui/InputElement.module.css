@@ -9,6 +9,7 @@
     --gray-color-800: #373737;
     --gray-color-900: #282828;
     --white-color: #fff;
+    --font-lable: 1rem;
     --font-p: 1.25rem;
     --txt-btn: 1rem;
     --font-h3: 1.625rem;
@@ -28,8 +29,9 @@
     position: relative;
 }
 .input_element_container label{
-    font-size: var(--font-p);
+    font-size: var(--font-lable);
     font-weight: bold;
+    margin-top: 12px;
 }
 /* Input */
 .input_element{
@@ -62,6 +64,104 @@
     font-weight: bold;
     font-size: var(--font-p);
     color: var(--red-color);
-    line-height: 18px;
+    line-height: 12px;
+    font-size: 12px;
+}
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+    .input_element_container{
+        gap: 4px;
+    }
+    .input_element_container label{
+        font-size: 0.8rem;
+        margin: 16px 0px 4px;
+    }
+    /* Input */
+    .input_element input{
+        font-size: 0.8rem;
+        padding: 6px 48px 6px 12px;
+    }
+    .input_element img{
+        width: 14px;
+    }
+    .error{
+        font-size: 0.7rem;
+        line-height: 1.2rem;
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+    .input_element_container{
+        gap: 4px;
+    }
+    .input_element_container label{
+        font-size: 0.8rem;
+        margin: 16px 0px 4px;
+    }
+    /* Input */
+    .input_element input{
+        font-size: 0.8rem;
+        padding: 6px 48px 6px 12px;
+    }
+    .input_element img{
+        width: 14px;
+    }
+    .error{
+        font-size: 0.7rem;
+        line-height: 1.2rem;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+    .input_element_container{
+        gap: 4px;
+    }
+    .input_element_container label{
+        font-size: 0.8rem;
+        margin: 16px 0px 4px;
+    }
+    /* Input */
+    .input_element input{
+        font-size: 0.8rem;
+        padding: 6px 48px 6px 12px;
+    }
+    .input_element img{
+        width: 14px;
+    }
+    .error{
+        font-size: 0.7rem;
+        line-height: 1.1rem;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+    .input_element_container{
+        gap: 4px;
+    }
+    .input_element_container label{
+        font-size: 0.8rem;
+        margin: 16px 0px 4px;
+    }
+    /* Input */
+    .input_element input{
+        font-size: 0.8rem;
+        padding: 6px 48px 6px 12px;
+    }
+    .input_element img{
+        width: 14px;
+    }
+    .error{
+        font-size: 0.7rem;
+        line-height: 1.1rem;
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
 }
 /* End Input Password Element */

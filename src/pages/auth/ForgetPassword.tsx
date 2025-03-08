@@ -5,17 +5,28 @@ import keyIcon from "../../assets/auth/forgetpassword/forget-password.png";
 import emailIcon from '../../assets/ui/inputelement/email.png'
 // ** Hooks
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 // ** Components
 import HeaderAuth from "../../components/auth/HeaderAuth";
 import InputElement from "../../components/ui/InputElement";
 
+
 export default function ForgetPassword() {
+  // Defaults
   const navigate = useNavigate();
 
+  // ** States
+  const [email, setEmail] = useState("");
+
+  // ** Handlers
   const otpHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     navigate("/u/otp");
   };
+
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value)
+  }
 
   return (
     <>
@@ -31,10 +42,11 @@ export default function ForgetPassword() {
                 id="userEmail"
                 name="البريد الالكتروني"
                 type="email"
-                value="ebraheemalimahrous000@gmail.com"
+                value= {email}
+                onChange={changeHandler}
                 placeholder="ادخل البريد الالكتروني"
                 img={{ src: emailIcon, alt: 'Email Icon' }}
-                error= "error"
+                error= "يرجى إدخال البريد الإلكتروني بشكل صحيح"
             />
             <button onClick={otpHandler}>إرسال رمز التأكيد</button>
           </form>

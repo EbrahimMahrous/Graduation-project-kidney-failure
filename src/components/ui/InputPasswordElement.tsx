@@ -12,7 +12,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 
-const InputPasswordElement = ({id, name, type, value, placeholder, img, error}: IInputElement) => {
+const InputPasswordElement = ({id, name, type, value, placeholder, error, onChange}: IInputElement) => {
     // ** States
     const [showPassword, setShowPassword] = useState(false)
 
@@ -31,7 +31,7 @@ const InputPasswordElement = ({id, name, type, value, placeholder, img, error}: 
                         value={value}
                         placeholder= {placeholder} 
                         id= {id}
-                        // onChange={}
+                        onChange={onChange}
                     />
                     <img src= {lockClosed} alt= {'lock Closed'} />
                     <span onClick={togglePasswordHandler}>{showPassword? <FaEye/> : <FaEyeSlash/>}</span>

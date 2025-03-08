@@ -33,7 +33,6 @@
     margin-bottom: 16px;
 }
 .platform_auth_icons img{
-    margin: 4px 0px;
     padding: 0.5rem 3rem;
     border-radius: 4px;
     border: 1px solid var(--main-color-700);
@@ -45,9 +44,77 @@
 }
 .tail span{
     color: var(--main-color-700);
-    font-weight: 700;
+    font-weight: bold;
     text-decoration: underline;
     cursor: pointer;
     margin-top: 160px;
+}
+
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+    .platform_auth_container p:first-child{
+        font-size: 0.9rem;
+    }
+    .platform_auth_icons img{
+        max-width: 90px;
+        padding: 0.5rem 2rem;
+        margin: 16px 0px 0px 0px;
+    }
+    .tail{
+        font-size: 0.8rem;
+    }
+
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+    .platform_auth_container p:first-child{
+        font-size: 0.9rem;
+    }
+    .platform_auth_icons img{
+        max-width: 100px;
+        padding: 0.5rem 2.5rem;
+        margin: 16px 0px 0px 0px;
+    }
+    .tail{
+        font-size: 0.8rem;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+    .platform_auth_container p:first-child{
+        font-size: 0.9rem;
+    }
+    .platform_auth_icons img{
+        max-width: 100px;
+        padding: 0.5rem 2.5rem;
+        margin: 16px 0px 0px 0px;
+    }
+    .tail{
+        font-size: 0.8rem;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+    .platform_auth_container p:first-child{
+        font-size: 0.9rem;
+    }
+    .platform_auth_icons img{
+        max-width: 100px;
+        padding: 0.5rem 2.5rem;
+        margin: 16px 0px 0px 0px;
+    }
+    .tail{
+        font-size: 0.8rem;
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
 }
 /* End Platform Auth Component */

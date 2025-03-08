@@ -30,10 +30,83 @@
     margin-bottom: 16px;
 }
 .header_auth_title p{
+    width: 90%;
+    margin: auto;
     font-size: var(--font-p);
-    /* margin-bottom: 32px; */
 }
 .header_auth_title h4{
-    margin-bottom: 32px;
+    margin-bottom: 20px;
+}
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+    .header_auth_title{
+        
+    }
+    .header_auth_title img{
+        width: 35px;
+    }
+    .header_auth_title h3{
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+    }
+    .header_auth_title p{
+        font-size: 0.9rem;
+    }
+    .header_auth_title h4{
+        
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+    .header_auth_title{
+        
+    }
+    .header_auth_title img{
+        width: 35px;
+    }
+    .header_auth_title h3{
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+    }
+    .header_auth_title p{
+        width: 80%;
+        font-size: 0.9rem;
+    }
+    .header_auth_title h4{
+        
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+    .header_auth_title{
+        
+    }
+    .header_auth_title img{
+        width: 35px;
+    }
+    .header_auth_title h3{
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+    }
+    .header_auth_title p{
+        width: 70%;
+        font-size: 0.9rem;
+    }
+    .header_auth_title h4{
+        
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
 }
 /* End Header Auth Component */

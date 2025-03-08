@@ -2,17 +2,26 @@
 import style from "../../styles/pages/auth/SignIn.module.css";
 // ** Hooks
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 // ** Assets
-import emailIcon from '../../assets/ui/inputelement/email.png'
+import emailIcon from "../../assets/ui/inputelement/email.png";
 // ** Components
 import HeaderAuth from "../../components/auth/HeaderAuth";
-import PlatformAuth from "../../styles/components/auth/PlatformAuth";
+import PlatformAuth from "../../components/auth/PlatformAuth";
 import InputElement from "../../components/ui/InputElement";
 import InputPasswordElement from "../../components/ui/InputPasswordElement";
+
 
 export default function SignIn() {
   // ** Defaults
   const navigate = useNavigate();
+
+  // ** States
+  const [userData, setUserData] = useState({
+    userEmail: "",
+    password: "",
+    rememberMe: false,
+  })
 
   // ** Handelers
   const forGetPasswordHandler = () => {
@@ -23,9 +32,17 @@ export default function SignIn() {
   };
   const loginHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    console.log('userSignInData', userData);
     navigate("/m");
   };
 
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>)=> {
+    const {id, value, type, checked} = e.target;
+    setUserData((prev) => ({
+      ...prev,
+      [id]: type === "checkbox" ? checked : value
+      }));
+  }
 
   return (
     <>
@@ -33,29 +50,36 @@ export default function SignIn() {
         <div className={style.signin_content}>
           <HeaderAuth headLine="تسجيل الدخول" />
           <form className={style.signin_form} action="">
-          <InputElement
-                id="userEmail"
-                name="البريد الالكتروني"
-                type="email"
-                value="ebraheemalimahrous000@gmail.com"
-                placeholder="ادخل البريد الالكتروني"
-                img={{ src: emailIcon, alt: 'Email Icon' }}
-                error= "error"
+            <InputElement
+              id="userEmail"
+              name="البريد الالكتروني"
+              type="email"
+              value={userData.userEmail}
+              onChange={changeHandler}
+              placeholder="ادخل البريد الالكتروني"
+              img={{ src: emailIcon, alt: "Email Icon" }}
+              error="يرجى إدخال البريد الإلكتروني بشكل صحيح"
             />
             <br />
-            <InputPasswordElement 
-                  id= 'userPassword' 
-                  name= 'كلمة المرور' 
-                  type= 'password' 
-                  value= "123456789"
-                  placeholder= 'ادخل كلمة المرور'
-                  error= "error" 
-              />
-              <br />
+            <InputPasswordElement
+              id="password"
+              name="كلمة المرور"
+              type="password"
+              value={userData.password}
+              onChange={changeHandler}
+              placeholder="ادخل كلمة المرور"
+              error="يرجى إدخال كلمة المرور (على الأقل 8 أحرف)"
+            />
+            <br />
             <div className={style.signin_checkbox}>
               <div>
-                <input type="checkbox" id="remember" />
-                <label htmlFor="remember">تذكرني</label>
+                <input 
+                id="rememberMe"
+                type="checkbox"
+                checked={userData.rememberMe}
+                onChange={changeHandler} 
+                />
+                <label htmlFor="rememberMe">تذكرني</label>
               </div>
               <p onClick={forGetPasswordHandler}>هل نسيت كلمه المرور؟</p>
             </div>

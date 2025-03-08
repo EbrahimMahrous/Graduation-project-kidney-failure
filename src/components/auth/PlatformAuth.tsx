@@ -1,9 +1,9 @@
 // ** Styles
-import style from '../../components/auth/PlatformAuth.module.css'
+import style from '../../styles/components/auth/PlatformAuth.module.css'
 // Assets
-import google from '../../../assets/components/auth/platformauth/google.png'
-import facebook from '../../../assets/components/auth/platformauth/facebook.png'
-import apple from '../../../assets/components/auth/platformauth/apple.png'
+import google from '../../assets/components/auth/platformauth/google.png'
+import facebook from '../../assets/components/auth/platformauth/facebook.png'
+import apple from '../../assets/components/auth/platformauth/apple.png'
 interface IPlatformAuth {
     title: string,
     tail: string,
@@ -23,7 +23,7 @@ const PlatformAuth = ({title, tail, subTail, onSubTailClick} : IPlatformAuth) =>
         </div>
         <p className= {style.tail}>
           {tail}
-          <span onClick={onSubTailClick}>{subTail}</span>
+          <span onClick={onSubTailClick}> {subTail}</span>
         </p>
       </div>
     </>

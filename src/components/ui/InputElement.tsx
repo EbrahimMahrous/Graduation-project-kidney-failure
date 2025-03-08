@@ -10,7 +10,7 @@ import { IInputElement } from '../../interfaces';
 
 
 
-const InputElement = ({id, name, type, value, placeholder, img, error} : IInputElement) => {
+const InputElement = ({id, name, type, value, placeholder, img, error, onChange} : IInputElement) => {
     return (
         <>
             <div className= {style.input_element_container}>
@@ -21,7 +21,7 @@ const InputElement = ({id, name, type, value, placeholder, img, error} : IInputE
                         placeholder= {placeholder} 
                         id= {id} 
                         value={value} 
-                        // onChange={}
+                        onChange={onChange}
                     />
                     <img src= {img?.src} alt={img?.alt} />
                 </div>

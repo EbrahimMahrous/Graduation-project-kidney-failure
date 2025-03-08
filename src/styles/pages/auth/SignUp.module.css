@@ -1,0 +1,225 @@
+:root
+{
+    --main-color-700: #026AA2;
+    --second-color: #EFF9FF;
+    --gray-color-400: #AFAFAF;
+    --gray-color-700: #515151;
+    --gray-color-800: #373737;
+    --gray-color-900: #282828;
+    --white-color: #fff;
+    --font-p: 1.25rem;
+    --font-lable: 1rem;
+    --txt-btn: 1rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
+}
+/* End Variables */
+
+
+
+
+
+/* Start SignUp */
+/* Page 1 */
+.sign_up_container{
+    height: 100vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1rem;
+}
+.sign_up_content{
+    width: 65%;
+    margin: auto;
+}
+
+/* Page 2 */
+/* Page 3 */
+.radio_container{
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.radio_container label:first-child{
+    font-size: var(--font-lable);
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 6px;
+}
+.radio_container div{
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    margin-left: 32px;
+    margin-bottom: 8px;
+}
+.radio_container input[type="radio"]{
+    cursor: pointer;
+    width: 14px;
+}
+.radio_container label{
+    cursor: pointer;
+    font-size: var(--txt-btn);
+}
+.radio_container .error{
+    font-weight: bold;
+    font-size: 12px;
+    color: var(--red-color);
+    margin-top: -10px; 
+}
+/* Button */
+.sign_up_content button{
+    background-color: var(--main-color-700);
+    padding: 5px 18px;
+    color: var(--white-color);
+    border: 0;
+    cursor: pointer;
+    font-size: var(--txt-btn);
+    width: 100%;
+    margin: 36px 0px;
+    border-radius: 4px;
+    text-align: center;
+}
+/* Footer */
+.sign_up_footer{
+    position: relative;
+}
+.sign_up_footer_content{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--gray-color-400);
+}
+.sign_up_arrow{
+    margin-top: 16px;
+}
+.sign_up_arrow img{
+    cursor: pointer;
+    padding: 8px 16px;
+    margin: 0px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-color-400);
+}
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+    .sign_up_container{
+        height: 100vh;
+        line-height: 0.8rem;
+    }
+    .sign_up_content{
+        width: 100%;
+    }
+    /* radio */
+    .radio_container label:first-child{
+        font-size: 0.8rem;
+        margin: 10px 0px 4px;
+    }
+    .radio_container div{
+        margin-bottom: 4px;
+    }
+    .radio_container label{
+        font-size: 0.8rem;
+    }
+    .radio_container .error{
+        font-size: 0.7rem;
+    }
+    /* Footer */
+    .sign_up_footer_content h3{
+        font-size: 0.7rem;
+    }
+    .sign_up_arrow{
+        margin-top: 8px;
+    }
+    .sign_up_arrow img{
+        width: 50%;
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+    .sign_up_container{
+        height: 100vh;
+        line-height: 0.8rem;
+    }
+    .sign_up_content{
+        width: 100%;
+    }
+    /* radio */
+    .radio_container label:first-child{
+        font-size: 0.8rem;
+        margin: 10px 0px 4px;
+    }
+    .radio_container div{
+        margin-bottom: 4px;
+    }
+    .radio_container label{
+        font-size: 0.8rem;
+    }
+    .radio_container .error{
+        font-size: 0.7rem;
+    }
+    /* Footer */
+    .sign_up_footer_content h3{
+        font-size: 0.7rem;
+    }
+    .sign_up_arrow{
+        margin-top: 8px;
+    }
+    .sign_up_arrow img{
+        width: 50%;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+    .sign_up_container{
+        height: 100vh;
+        line-height: 0.8rem;
+    }
+    .sign_up_content{
+        width: 100%;
+    }
+    /* radio */
+    .radio_container label:first-child{
+        font-size: 0.8rem;
+        margin: 10px 0px 4px;
+    }
+    .radio_container div{
+        margin-bottom: 4px;
+    }
+    .radio_container label{
+        font-size: 0.8rem;
+    }
+    .radio_container .error{
+        font-size: 0.7rem;
+    }
+    /* Footer */
+    .sign_up_footer_content h3{
+        font-size: 0.7rem;
+    }
+    .sign_up_arrow{
+        margin-top: 8px;
+    }
+    .sign_up_arrow img{
+        width: 50%;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
+}
+/* End SignUp */
