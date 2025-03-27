@@ -27,7 +27,7 @@
 }
 .section_content{
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 2fr 4fr;
     align-items: center;
     gap: 16px;
 }
@@ -104,8 +104,12 @@
 .about_us_text p span{
     color: var(--main-color-700);
     font-weight: bold;
+    cursor: pointer;
 }
-/* Start media query */
+
+
+
+
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) 
 {
@@ -172,5 +176,4 @@
         background-position: right bottom;
     }
 }
-/* End media query */
 /* Start AboutUs Section */

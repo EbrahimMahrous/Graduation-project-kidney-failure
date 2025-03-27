@@ -17,6 +17,7 @@ import nextIcon from "../../assets/auth/signup/next-icon.png";
 import emailIcon from "../../assets/auth/signup/email.png";
 import arrowIcon from "../../assets/auth/signup/arrow-down.png";
 import arrowUpDownlIcon from "../../assets/auth/signup/arrow-up-down.png";
+import ButtonElement from "../../components/ui/ButtonElement";
 
 export default function SignUp() {
   // ** Defaults
@@ -102,7 +103,13 @@ export default function SignUp() {
           error="يرجى إدخال رقم الهاتف بشكل صحيح"
         />
         <br />
-        <button onClick={nextSignUpPageHandler}>التالي</button>
+        <ButtonElement
+          className= {style.next_button}
+          txt= "التالي"
+          onClick={nextSignUpPageHandler}
+          variant= "primary"
+          type= "button"
+        />
         <PlatformAuth
           title="او انشاء حساب باستخدام"
           tail="هل لديك حساب؟ "
@@ -147,7 +154,13 @@ export default function SignUp() {
           error="يرجى التأكد من أن كلمة المرور تتطابق"
         />
         <br />
-        <button onClick={nextSignUpPageHandler}>التالي</button>
+        <ButtonElement
+          className= {style.next_button}
+          txt= "التالي"
+          onClick={nextSignUpPageHandler}
+          variant= "primary"
+          type= "button"
+        />
         <PlatformAuth
           title="او تسيجل الدخول باستخدام"
           tail="هل لديك حساب؟"
@@ -263,7 +276,13 @@ export default function SignUp() {
           img={{ src: arrowIcon, alt: "Stage Icon" }}
           error="يرجى إدخال حالتك بشكل صحيح"
         />
-        <button onClick={otpHandler}>انشاء حساب</button>
+        <ButtonElement
+          className= {style.sign_up_button}
+          txt= "انشاء حساب"
+          onClick={otpHandler}
+          variant= "primary"
+          type= "submit"
+        />
       </div>
     </div>
   );

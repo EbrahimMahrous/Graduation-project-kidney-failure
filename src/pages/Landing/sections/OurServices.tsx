@@ -5,6 +5,8 @@ import serItem1 from '../../../assets/landing/OurServices/service-1.png'
 import serItem2 from '../../../assets/landing/OurServices/service-2.png'
 import serItem3 from '../../../assets/landing/OurServices/service-3.png'
 import serItem4 from '../../../assets/landing/OurServices/service-4.png'
+// ** Components
+import HeaderLanding from '../../../components/Landing/HeaderLanding'
 
 
 
@@ -19,11 +21,10 @@ export default function OurServices({sectionId}: ISection) {
             <section className= {style.section} id = {sectionId}>
                 <div className= {style.services_container}>
                     <div className= {style.services_content}>
-                        {/* Top */}
-                        <div className= {style.services_Title}>
-                            <h3>خدماتنا المتخصصة لدعم صحتك</h3>
-                            <p>قدم لك مجموعة من الخدمات المتكاملة التي تهدف إلى تحسين صحتك الجسدية والنفسية</p>
-                        </div>
+                        <HeaderLanding
+                            title='خدماتنا المتخصصة لدعم صحتك'
+                            description='قدم لك مجموعة من الخدمات المتكاملة التي تهدف إلى تحسين صحتك الجسدية والنفسية'
+                        />
                         {/* Bottom */}
                         <div className= {style.services_items}>
                             <div className= {style.serv_item}>

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 // ** assets
 import logo from '../../assets/NavBar/logo.png'
 import menu from '../../assets/NavBar/menu.svg'
+import ButtonElement from '../ui/ButtonElement'
 
 
 
@@ -22,9 +23,9 @@ export default function NavBar(){
 
     // ** States
     const[navOpen, setNavOpen] = useState<boolean>(false)
-    const [activeItem, setAvtiveItem] = useState<string>('')
+    const [activeItem, setActiveItem] = useState<string>('')
     const menuRef = useRef<HTMLDivElement>(null) 
-    const toggelNavbar = () => {
+    const toggleNavbar = () => {
         if(!navOpen&& menuRef.current && window.innerWidth < 992){
             menuRef.current.style.display = 'flex'
             setNavOpen(true)
@@ -39,8 +40,8 @@ export default function NavBar(){
         const sectionId = document.getElementById(id)
         if(sectionId){
             sectionId.scrollIntoView({behavior: 'smooth'});
-            setAvtiveItem(id)
-            toggelNavbar();
+            setActiveItem(id)
+            toggleNavbar();
         }
     }
     return (
@@ -50,7 +51,7 @@ export default function NavBar(){
                     <div className= {style.logo}>
                         <img src= {logo} alt="logo navbar"/>
                     </div>
-                    <div onClick={toggelNavbar} className= {style.mobile_menu}>
+                    <div onClick={toggleNavbar} className= {style.mobile_menu}>
                         <img src= {menu} alt="menu icon navbar"/>
                     </div>
                     <div className= {style.menu} ref={menuRef}>
@@ -65,7 +66,7 @@ export default function NavBar(){
                                 <li
                                 key={item.id}
                                 onClick={() => smoothScrollHandler(item.id)}
-                                className= {activeItem === item.id ? style.active : ''}
+                                className={`${activeItem === item.id ? style.active : ''}`}
                                 >
                                     {item.label}
                                 </li>
@@ -73,8 +74,16 @@ export default function NavBar(){
                         </ul>
                     </div>
                     <div className= {style.auth_btns}>
-                        <button onClick={signUpHandler}>إنشاء حساب</button>
-                        <button onClick={signInHandler}>تسجيل دخول</button>
+                        <ButtonElement
+                            txt= 'إنشاء حساب'
+                            onClick= {signUpHandler}
+                            variant= 'primary'
+                        />
+                        <ButtonElement
+                            txt= 'تسجيل دخول'
+                            onClick= {signInHandler}
+                            variant= 'secondary'
+                        />
                     </div>
                 </div>
             </nav>

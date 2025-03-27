@@ -6,6 +6,9 @@ import facebookIcon from '../../../assets/landing/Footer/facebook.png'
 import xIcon from '../../../assets/landing/Footer/X.png'
 import linkedinIcon from '../../../assets/landing/Footer/linkedin.png'
 import telegramIcon from '../../../assets/landing/Footer/telegram.png'
+// ** Components
+import HeaderLanding from '../../../components/Landing/HeaderLanding'
+
 
 
 
@@ -20,11 +23,10 @@ export default function Footer({sectionId}: ISection) {
             <section className= {style.section} id = {sectionId}>
                 <div className= {style.footer_container}>
                     <div className= {style.footer_content}>
-                        {/* Top */}
-                        <div className= {style.footer_Title}>
-                            <img src= {footerLogo} alt="" />
-                            <p>نحن نقدم حلولًا رقمية مبتكرة لدعم صحتك. اكتشف كيف يمكننا مساعدتك في متابعة حالتك الصحية بكل سهولة وراحة</p>
-                        </div>
+                        <HeaderLanding
+                            img={{src: footerLogo, alt: 'footer logo'}}
+                            description= 'نحن نقدم حلولًا رقمية مبتكرة لدعم صحتك. اكتشف كيف يمكننا مساعدتك في متابعة حالتك الصحية بكل سهولة وراحة'
+                        />
                         {/* Bottom */}
                         <div className= {style.footer_End}>
                             <p>© 2024 كليّتِك جميع الحقوق محفوظة تم تصميم وتطوير هذه المنصة لتقديم أفضل دعم صحي ورعاية للمستخدمين</p>

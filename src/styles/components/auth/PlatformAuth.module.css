@@ -115,6 +115,16 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) 
 {
-
+    .platform_auth_container p:first-child{
+        font-size: 0.9rem;
+    }
+    .platform_auth_icons img{
+        max-width: 100px;
+        padding: 0.5rem 2.5rem;
+        margin: 16px 0px 0px 0px;
+    }
+    .tail{
+        font-size: 0.8rem;
+    }
 }
 /* End Platform Auth Component */

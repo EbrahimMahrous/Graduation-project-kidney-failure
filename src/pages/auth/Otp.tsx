@@ -4,6 +4,7 @@ import style from '../../styles/pages/auth/Otp.module.css'
 import emailIcon from '../../assets/auth/otp/email-icon.png'
 import { useNavigate } from 'react-router-dom';
 import HeaderAuth from '../../components/auth/HeaderAuth';
+import ButtonElement from '../../components/ui/ButtonElement';
 
 
 
@@ -34,7 +35,13 @@ export default function Otp(){
                             <input type="text" />
                             <input type="text" />
                         </div>
-                        <button onClick={newPasswordHandler}>إرسال رمز التأكيد</button>
+                        <ButtonElement
+                            className= {style.send_otp_button}
+                            txt='ارسال رمز التأكيد'
+                            onClick={newPasswordHandler}
+                            variant='primary'
+                            type='button'
+                        />
                         <p>لم يتم ارسال رمز تأكيد؟ <a href="/">ارسال مرة اخرى</a></p>
                     </form>
                 </div>

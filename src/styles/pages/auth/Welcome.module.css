@@ -29,7 +29,7 @@
 .welcome_content{
 
 }
-/* Title Component Here */
+
 /* btns */
 .welcome_btns{
     width: 100%;
@@ -38,19 +38,11 @@
     flex-direction: column;
     gap: 16px;
 }
-.welcome_btns button:first-child, .welcome_btns button:nth-child(2){
-    background-color: var(--main-color-700);
-    padding: 5px 18px;
-    color: var(--white-color);
-    border: 0;
-    cursor: pointer;
-    font-size: var(--txt-btn);
+
+.sgin_up_button, .sgin_in_button{
+    width: 100%;
 }
-.welcome_btns button:nth-child(2){
-    background-color: var(--white-color);
-    color: var(--main-color-700);
-    border: 1px solid var(--main-color-700);
-}
+
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) 
 {

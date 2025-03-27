@@ -8,6 +8,7 @@ import { useState } from 'react';
 // ** Components
 import HeaderAuth from '../../components/auth/HeaderAuth';
 import InputPasswordElement from '../../components/ui/InputPasswordElement';
+import ButtonElement from '../../components/ui/ButtonElement';
 
 
 
@@ -64,7 +65,14 @@ export default function NewPassword(){
                             error= "يرجى إدخال البريد الإلكتروني بشكل صحيح" 
                         />
                        <br />
-                       <button type="submit">تغير كلمه المرور</button>
+                       <ButtonElement
+                            className= {style.new_password_button}
+                            txt='تغير كلمه المرور'
+                            onClick={()=>{}}
+                            variant='primary'
+                            type='submit'
+                       />
+                       {/* <button type="submit">تغير كلمه المرور</button> */}
                     </form>
                 </div>
             </div>

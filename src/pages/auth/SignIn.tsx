@@ -10,6 +10,8 @@ import HeaderAuth from "../../components/auth/HeaderAuth";
 import PlatformAuth from "../../components/auth/PlatformAuth";
 import InputElement from "../../components/ui/InputElement";
 import InputPasswordElement from "../../components/ui/InputPasswordElement";
+import CheckboxElement from "../../components/ui/CheckboxElement";
+import ButtonElement from "../../components/ui/ButtonElement";
 
 
 export default function SignIn() {
@@ -71,20 +73,24 @@ export default function SignIn() {
               error="يرجى إدخال كلمة المرور (على الأقل 8 أحرف)"
             />
             <br />
-            <div className={style.signin_checkbox}>
-              <div>
-                <input 
-                id="rememberMe"
-                type="checkbox"
-                checked={userData.rememberMe}
-                onChange={changeHandler} 
-                />
-                <label htmlFor="rememberMe">تذكرني</label>
-              </div>
-              <p onClick={forGetPasswordHandler}>هل نسيت كلمه المرور؟</p>
-            </div>
+            <CheckboxElement
+              id= "rememberMe"
+              name=""
+              checked = {userData.rememberMe}
+              onChange={changeHandler}
+              label= "تذكرني"
+              tail= "هل نسيت كلمة المرور؟"
+              onClick={forGetPasswordHandler}
+            />
             <div className={style.signin_btn}>
-              <button onClick={loginHandler}>تسجيل الدخول</button>
+              <ButtonElement
+                className= {''}
+                txt="تسجيل الدخول"
+                onClick={loginHandler}
+                variant="primary"
+                type= "button"
+              />
+              {/* <button onClick={loginHandler}>تسجيل الدخول</button> */}
             </div>
           </form>
           <PlatformAuth

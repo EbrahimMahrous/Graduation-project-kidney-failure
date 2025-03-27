@@ -53,6 +53,8 @@ nav{
     list-style: none;
     margin: 0px 5px;
     cursor: pointer;
+    font-size: var(--font-p);
+    margin: 0px 16px;
 }
 .active {
     color: var(--main-color-700);
@@ -66,24 +68,8 @@ nav{
     gap: 5px;
 }
 .auth_btns button{
-    padding: 10px;
     margin: 0px 2px;
-    width: auto;
 }
-.auth_btns button:first-child, .auth_btns button:nth-child(2){
-    background-color: var(--main-color-700);
-    padding: 5px 18px;
-    color: var(--white-color);
-    border: 0;
-    cursor: pointer;
-    font-size: var(--txt-btn);
-}
-.auth_btns button:nth-child(2){
-    background-color: var(--white-color);
-    color: var(--main-color-700);
-    border: 1px solid var(--main-color-700);
-}
-
 
 
 
@@ -166,7 +152,10 @@ nav{
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) 
 {
-
+    .menu li{
+        font-size: 1rem;
+        margin: 0px 6px;
+    }
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) 

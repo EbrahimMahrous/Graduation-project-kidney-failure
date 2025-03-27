@@ -162,6 +162,24 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) 
 {
-
+    .input_element_container{
+        gap: 4px;
+    }
+    .input_element_container label{
+        font-size: 0.8rem;
+        margin: 16px 0px 4px;
+    }
+    /* Input */
+    .input_element input{
+        font-size: 0.8rem;
+        padding: 6px 48px 6px 12px;
+    }
+    .input_element img{
+        width: 14px;
+    }
+    .error{
+        font-size: 0.7rem;
+        line-height: 1.1rem;
+    }
 }
 /* End Input Password Element */

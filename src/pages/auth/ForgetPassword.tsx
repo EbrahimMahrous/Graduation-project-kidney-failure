@@ -9,6 +9,7 @@ import { useState } from "react";
 // ** Components
 import HeaderAuth from "../../components/auth/HeaderAuth";
 import InputElement from "../../components/ui/InputElement";
+import ButtonElement from "../../components/ui/ButtonElement";
 
 
 export default function ForgetPassword() {
@@ -48,7 +49,13 @@ export default function ForgetPassword() {
                 img={{ src: emailIcon, alt: 'Email Icon' }}
                 error= "يرجى إدخال البريد الإلكتروني بشكل صحيح"
             />
-            <button onClick={otpHandler}>إرسال رمز التأكيد</button>
+            <ButtonElement
+                className= {style.send_otp_button}
+                txt='ارسال رمز التأكيد'
+                onClick={otpHandler}
+                variant='primary'
+                type='button'
+            />
           </form>
         </div>
       </div>

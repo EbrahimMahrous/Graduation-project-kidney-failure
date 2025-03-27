@@ -1,28 +1,27 @@
 import { InputHTMLAttributes } from "react";
 
+// Shared interface for image
+interface IImage {
+    src: string;
+    alt: string;
+}
 
-
+// ** Input component props
 export interface IInputElement extends InputHTMLAttributes<HTMLInputElement>{
     id: string,
     name: string,
     type: string,
-    value?: string,
     placeholder: string,
-    img?: {
-        src: string,
-        alt: string,
-    },
+    value?: string,
+    img?: IImage,
     error?: string,
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-
+// ** Header used in authentication components
 export interface IHeaderAuth{
-    img?: {
-        src: string,
-        alt: string
-    },
     headLine: string,
+    img?: IImage,
     p?: string,
     subTitle?: string
 }

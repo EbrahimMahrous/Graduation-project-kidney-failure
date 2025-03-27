@@ -1,0 +1,47 @@
+:root
+{
+    --main-color-700: #026AA2;
+    --second-color: #EFF9FF;
+    --red-color: #ff0000d2;
+    --gray-color-400: #AFAFAF;
+    --gray-color-700: #515151;
+    --gray-color-800: #373737;
+    --gray-color-900: #282828;
+    --white-color: #fff;
+    --font-lable: 1rem;
+    --font-p: 1.25rem;
+    --txt-btn: 1rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
+}
+/* End Variables */
+
+
+
+
+
+/* Start HeaderLanding Component */
+.header_landing_container{
+
+}
+.header_landing_content{
+    text-align: center;
+    /* Pat */
+    /* margin-bottom: calc(16*2px); */
+    /* footer */
+    margin-bottom: calc(16*5px);
+}
+.header_landing_content img{
+
+}
+.header_landing_content h3{
+    font-size: var(--font-h3);
+    color: var(--main-color-700);
+}
+.header_landing_content p{
+    font-size: var(--font-p);
+    /* Footer */
+    /* width: 60%; */
+    /* margin: auto; */
+}
+/* End HeaderLanding Component */

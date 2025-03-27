@@ -29,18 +29,9 @@
 .patient_reviews_content{
 
 }
-/* Top */
-.patient_reviews_Title{
-    text-align: center;
-    margin-bottom: calc(16*2px);
-}
-.patient_reviews_Title h3{
-    font-size: var(--font-h3);
-    color: var(--main-color-700);
-}
-.patient_reviews_Title p{
-    font-size: var(--font-p);
-}
+
+/* HeaderLanding Component Here */
+
 /* Numbers */
 .patient_reviews_nums{
     display: flex;

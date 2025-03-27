@@ -1,0 +1,90 @@
+/* Start Variables */
+:root
+{
+    --main-color-700: #026AA2;
+    --second-color: #EFF9FF;
+    --red-color: #ff0000d2;
+    --gray-color-400: #AFAFAF;
+    --gray-color-700: #515151;
+    --gray-color-800: #373737;
+    --gray-color-900: #282828;
+    --white-color: #fff;
+    --font-lable: 1rem;
+    --font-p: 1.25rem;
+    --txt-btn: 1rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
+}
+/* End Variables */
+
+
+
+
+
+/* Start Textarea component */
+.input_placeholder{
+    display: flex;
+    flex-direction: column;
+    
+}
+.input_placeholder label{
+    font-size: var(--font-lable);
+    font-weight: bold;
+    margin-top: 12px;
+}
+.input_placeholder textarea{
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--gray-color-400);
+    margin-bottom: 16px;
+    width: 100%;
+    height: 17rem;
+}
+.input_placeholder textarea:focus{
+    border: 1px solid var(--main-color-700);
+    outline: 1px solid var(--main-color-700);
+}
+.error{
+    font-weight: bold;
+    font-size: var(--font-p);
+    color: var(--red-color);
+    font-size: 12px;
+    line-height: 8px;
+}
+
+
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+    .input_placeholder textarea{
+        height: 10rem;
+    }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+    .input_placeholder textarea{
+        height: 10rem;
+    }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+    .input_placeholder textarea{
+        height: 10rem;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+    .input_placeholder textarea{
+        height: 10rem;
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
+}
+/* End Textarea component */

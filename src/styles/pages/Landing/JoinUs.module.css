@@ -29,62 +29,55 @@
 }
 .section_content{
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 4fr;
     align-items: center;
     gap: calc(8 * 4px);
 }
 /* right */
-.join_Us_Photo{
+.join_us_photo{
 
 }
-.join_Us_Photo img{
+.join_us_photo img{
     margin-top: 18px;
 }
 /* left */
-.join_Us_Text{
+.join_us_text{
     
 }
-.join_Us_Text h3{
+.join_us_text h3{
     font-size: var(--font-h3);
     color: var(--main-color-700);
     margin-bottom: 12px;
 }
-.join_Us_Text p{
+.join_us_text p{
     font-size: var(--font-p);
     margin-bottom: 24px;
 }
-.join_Us_Text button{
-    background-color: var(--main-color-700);
-    padding: 5px calc(16 * 3px);
-    color: var(--white-color);
-    border: 0;
-    cursor: pointer;
-    font-size: var(--txt-btn);
+
+.join_us_button{
+    width: 345px;
 }
 
 
 
 
 
-/* Start Media Query */
+
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) 
 {
     .section_content{
         grid-template-columns: 1fr;
     }
-    .join_Us_Photo{
+    .join_us_photo{
         width: 95%;
         margin: auto;
     }
-    .join_Us_Photo img{
+    .join_us_photo img{
         width: 100%;
     }
-    .join_Us_Text{
+    .join_us_text{
         text-align: center;
-    }
-    .join_Us_Text button{
-        width: 100%;
     }
 }
 /* Small devices (landscape phones, 576px and up) */
@@ -93,18 +86,15 @@
     .section_content{
         grid-template-columns: 1fr;
     }
-    .join_Us_Photo{
+    .join_us_photo{
         width: 90%;
         margin: auto;
     }
-    .join_Us_Photo img{
+    .join_us_photo img{
         width: 100%;
     }
-    .join_Us_Text{
+    .join_us_text{
         text-align: center;
-    }
-    .join_Us_Text button{
-        width: 100%;
     }
 }
 /* Medium devices (tablets, 768px and up) */
@@ -113,33 +103,25 @@
     .section_content{
         grid-template-columns: 1fr;
     }
-    .join_Us_Photo{
+    .join_us_photo{
         width: 80%;
         margin: auto;
     }
-    .join_Us_Photo img{
+    .join_us_photo img{
         width: 100%;
     }
-    .join_Us_Text{
+    .join_us_text{
         text-align: center;
-    }
-    .join_Us_Text button{
-        width: 100%;
     }
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) 
 {
-    .join_Us_Text button{
-        width: 100%;
-    }
+
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) 
 {
-    .join_Us_Text button{
-        width: 32%;
-    }
+
 }
-/* End Media Query */
 /* End JoinUs Section */

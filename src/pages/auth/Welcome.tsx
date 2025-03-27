@@ -4,6 +4,7 @@ import style from '../../styles/pages/auth/Welcome.module.css'
 import { useNavigate } from 'react-router-dom'
 // Components
 import HeaderAuth from '../../components/auth/HeaderAuth'
+import ButtonElement from '../../components/ui/ButtonElement'
 
 
 
@@ -26,8 +27,20 @@ export default function Welcome(){
                         p='للحصول على تجربة مميزة، يمكنك تسجيل الدخول أو إنشاء حساب جديد'
                     />
                     <div className= {style.welcome_btns}>
-                        <button onClick={signUpHandler}>إنشاء حساب</button>
-                        <button onClick={signInHandler}>تسجيل دخول</button>
+                        <ButtonElement
+                            className= {style.sgin_up_button}
+                            txt='إنشاء حساب'
+                            onClick={signUpHandler}
+                            variant='secondary'
+                            type='button'
+                        />
+                        <ButtonElement
+                            className= {style.sgin_in_button}
+                            txt='تسجيل دخول'
+                            onClick={signInHandler}
+                            variant='primary'
+                            type='button'
+                        />
                     </div>
                 </div>
             </div>

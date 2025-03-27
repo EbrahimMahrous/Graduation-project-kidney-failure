@@ -5,6 +5,8 @@ import benefitPhoto from '../../../assets/landing/Benefit/benefit-photo.png'
 import circleOne from '../../../assets/landing/Benefit/one.png'
 import circleTwo from '../../../assets/landing/Benefit/two.png'
 import CircleThree from '../../../assets/landing/Benefit/three.png'
+// ** Components
+import HeaderLanding from '../../../components/Landing/HeaderLanding'
 
 
 
@@ -19,11 +21,10 @@ export default function Benefit({sectionId}: ISection) {
             <section className= {style.section} id = {sectionId}>
                 <div className= {style.benefit_container}>
                     <div className= {style.benefit_content}>
-                        {/* Top */}
-                        <div className= {style.benefit_Title}>
-                            <h3>استفد من خدماتنا بسهولة</h3>
-                            <p>اتبع خطوات بسيطة للحصول على الدعم الطبي والتوجيه الصحي من خلال منصتنا، حيث نقدم لك جميع الأدوات اللازمة لمتابعة حالتك الصحية وتحقيق أفضل النتائج</p>
-                        </div>
+                        <HeaderLanding
+                            title='استفد من خدماتنا بسهولة'
+                            description='اتبع خطوات بسيطة للحصول على الدعم الطبي والتوجيه الصحي من خلال منصتنا، حيث نقدم لك جميع الأدوات اللازمة لمتابعة حالتك الصحية وتحقيق أفضل النتائج'
+                        />
                         {/* Bottom */}
                         <div className= {style.benefit_services}>
                             {/* right */}

@@ -10,22 +10,24 @@ import { IInputElement } from '../../interfaces';
 
 
 
-const InputElement = ({id, name, type, value, placeholder, img, error, onChange} : IInputElement) => {
+const InputElement = ({id, name, type = 'text', value = '', placeholder = '', img, error = '', onChange} : IInputElement) => {
     return (
         <>
             <div className= {style.input_element_container}>
                 <label htmlFor= {id}>{name}</label>
                 <div className= {style.input_element}>
                     <input 
-                        type= {type} 
-                        placeholder= {placeholder} 
-                        id= {id} 
-                        value={value} 
+                        id={id}
+                        name={name}
+                        type={type}
+                        placeholder={placeholder}
+                        value={value}
                         onChange={onChange}
+                        autoComplete="off"
                     />
-                    <img src= {img?.src} alt={img?.alt} />
+                    {img && <img src={img.src} alt={img.alt} />}
                 </div>
-                <span className= {style.error}>{error}</span>
+                {error && <span className={style.error}>{error}</span>}
             </div>
         </>
     );

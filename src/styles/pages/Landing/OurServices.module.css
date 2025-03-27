@@ -28,18 +28,9 @@
 .services_content{
 
 }
-/* Top */
-.services_Title{
-    text-align: center;
-}
-.services_Title h3{
-    font-size: var(--font-h3);
-    color: var(--main-color-700);
-}
-.services_Title p{
-    font-size: var(--font-p);
-    margin-bottom: calc(8* 6px);
-}
+
+/* HeaderLanding Component Here */
+
 /* Bottom */
 .services_items{
     display: grid;

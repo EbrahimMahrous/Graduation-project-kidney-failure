@@ -29,17 +29,9 @@
 .benefit_content{
 
 }
-/* Top */
-.benefit_Title{
-    text-align: center;
-}
-.benefit_Title h3{
-    font-size: var(--font-h3);
-    color: var(--main-color-700);
-}
-.benefit_Title p{
-    font-size: var(--font-p);
-}
+
+/* HeaderLanding Component Here */
+
 /* Bottom ==> one - two*/
 .benefit_services{
     display: grid;
@@ -49,7 +41,7 @@
 }
 /* one */
 .benefit_photo{
-    margin-top: calc(8*6px);
+    
 }
 .benefit_photo img{
     display: block;

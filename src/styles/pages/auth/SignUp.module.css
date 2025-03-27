@@ -71,18 +71,11 @@
     margin-top: -10px; 
 }
 /* Button */
-.sign_up_content button{
-    background-color: var(--main-color-700);
-    padding: 5px 18px;
-    color: var(--white-color);
-    border: 0;
-    cursor: pointer;
-    font-size: var(--txt-btn);
+.sign_up_button, .next_button{
     width: 100%;
     margin: 36px 0px;
-    border-radius: 4px;
-    text-align: center;
 }
+
 /* Footer */
 .sign_up_footer{
     position: relative;
@@ -215,11 +208,57 @@
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) 
 {
-
+    /* radio */
+    .radio_container label:first-child{
+        font-size: 0.8rem;
+        margin: 10px 0px 4px;
+    }
+    .radio_container div{
+        margin-bottom: 4px;
+    }
+    .radio_container label{
+        font-size: 0.8rem;
+    }
+    .radio_container .error{
+        font-size: 0.7rem;
+    }
+    /* Footer */
+    .sign_up_footer_content h3{
+        font-size: 0.7rem;
+    }
+    .sign_up_arrow{
+        margin-top: 8px;
+    }
+    .sign_up_arrow img{
+        width: 50%;
+    }
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) 
 {
-
+    /* radio */
+    .radio_container label:first-child{
+        font-size: 0.8rem;
+        margin: 10px 0px 4px;
+    }
+    .radio_container div{
+        margin-bottom: 4px;
+    }
+    .radio_container label{
+        font-size: 0.8rem;
+    }
+    .radio_container .error{
+        font-size: 0.7rem;
+    }
+    /* Footer */
+    .sign_up_footer_content h3{
+        font-size: 0.7rem;
+    }
+    .sign_up_arrow{
+        margin-top: 8px;
+    }
+    .sign_up_arrow img{
+        width: 50%;
+    }
 }
 /* End SignUp */

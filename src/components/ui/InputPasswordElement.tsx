@@ -12,31 +12,41 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 
-const InputPasswordElement = ({id, name, type, value, placeholder, error, onChange}: IInputElement) => {
+const InputPasswordElement = ({id, name, type= 'password', value= '', placeholder= '', error= '', onChange}: IInputElement) => {
     // ** States
     const [showPassword, setShowPassword] = useState(false)
 
 
     // ** Handlers
-    const togglePasswordHandler=()=>{setShowPassword(!showPassword)}
+    const togglePasswordVisibility=()=>{setShowPassword(prev => !prev)}
 
 
     return (
         <>
             <div className= {style.input_password_container}>
                 <label htmlFor= {id}>{name}</label>
+
                 <div className= {style.input_password_element}>
                     <input 
+                        id= {id}
+                        name= {name}
                         type= {showPassword? 'text': type}  
                         value={value}
                         placeholder= {placeholder} 
-                        id= {id}
                         onChange={onChange}
+                        autoComplete="off"
                     />
                     <img src= {lockClosed} alt= {'lock Closed'} />
-                    <span onClick={togglePasswordHandler}>{showPassword? <FaEye/> : <FaEyeSlash/>}</span>
+                    <span 
+                        onClick={togglePasswordVisibility}
+                        role="button"
+                        aria-label="Toggle password visibility"
+                        className={style.eye_icon}
+                    >
+                        {showPassword? <FaEye/> : <FaEyeSlash/>}
+                    </span>
                 </div>
-                <span className= {style.error}>{error}</span>
+                {error && <span className={style.error}>{error}</span>}
             </div>
         </>
     );

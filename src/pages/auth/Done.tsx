@@ -6,6 +6,7 @@ import doneIcon from "../../assets/auth/done/done.png";
 import { useNavigate } from "react-router-dom";
 // ** Components
 import HeaderAuth from "../../components/auth/HeaderAuth";
+import ButtonElement from "../../components/ui/ButtonElement";
 
 export default function Done() {
   // ** Defaults
@@ -23,7 +24,13 @@ export default function Done() {
             headLine="اعاده تعين كلمه المرور"
             p="لقد تم تعير كلمه المرور بنجاح انقر لتسجيل الدخول"
           />
-          <button onClick={signInHandler}>تسجيل الدخول</button>
+          <ButtonElement
+            className= {style.sign_in_button}
+            txt="تسجيل دخول"
+            onClick={signInHandler}
+            variant="primary"
+            type="submit"
+          />
         </div>
       </div>
     </>

@@ -1,13 +1,17 @@
+
+
 /* Start Variables */
 :root
 {
     --main-color-700: #026AA2;
     --second-color: #EFF9FF;
+    --red-color: #ff0000d2;
     --gray-color-400: #AFAFAF;
     --gray-color-700: #515151;
     --gray-color-800: #373737;
     --gray-color-900: #282828;
     --white-color: #fff;
+    --font-lable: 1rem;
     --font-p: 1.25rem;
     --txt-btn: 1rem;
     --font-h3: 1.625rem;
@@ -19,68 +23,71 @@
 
 
 
-/* Start New Password */
-.newpassword_container{
-    width: 90%;
-    margin: auto;
+
+/* Start Input Element */
+.input_checkbox_content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.input_checkbox{
     display: flex;
     align-items: center;
-    justify-content: center;
 }
-.newpassword_content{
-    width: 75%;
-    margin: auto;
+.input_checkbox input{
+    border: 1px solid var(--main-color-700);
+    margin-left: 12px;
+    cursor: pointer;
 }
-/* Title Component Here */
-/* Form */
-.newpassword_form{
+.input_checkbox label{
+    font-size: var(--font-p);
+    /* color: var(--main-color-700); */
+    cursor: pointer;
+}
+.input_checkbox label a{
+    color: var(--main-color-700);
+    text-decoration: none;
+}
+.input_checkbox_content p{
+    cursor: pointer;
+    color: var(--gray-color-700);
+    font-size: 0.8rem;
+}
 
-}
-/* Button */
-.new_password_button{
-    width: 100%;
-    margin: 24px 0px;
-}
+
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) 
 {
-    .newpassword_container{
-        height: 100vh;
-    }
-    .newpassword_content{
-        width: 100%;
+    .input_checkbox label{
+        font-size: 1rem;
     }
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) 
 {
-    .newpassword_container{
-        height: 100vh;
-    }
-    .newpassword_content{
-        width: 100%;
+    .input_checkbox label{
+        font-size: 1rem;
     }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) 
 {
-    .newpassword_container{
-        height: 100vh;
-    }
-    .newpassword_content{
-        width: 80%;
+    .input_checkbox label{
+        font-size: 1rem;
     }
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) 
 {
-    .newpassword_content{
-        width: 100%;
+    .input_checkbox label{
+        font-size: 1rem;
     }
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) 
 {
-
+    .input_checkbox label{
+        font-size: 1rem;
+    }
 }
-/* End New Password */
+/* End Input Element */

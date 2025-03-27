@@ -28,19 +28,9 @@
 .footer_content{
 
 }
-/* Top */
-.footer_Title{
-    text-align: center;
-    margin-bottom: calc(16*5px);
-}
-.footer_Title img{
 
-}
-.footer_Title p{
-    font-size: var(--font-p);
-    width: 60%;
-    margin: auto;
-}
+/* HeaderLanding Component Here */
+
 /* End */
 .footer_End{
     display: flex;

@@ -32,45 +32,13 @@
     width: 65%;
     margin: auto;
 }
-/* Title Component Here*/
 
 /* Form */
-/* checkbox */
-.signin_checkbox{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.signin_checkbox div:first-child{
-    display: flex;
-    align-items: center;
-}
-.signin_checkbox div:first-child input{
-    border: 1px solid var(--main-color-700);
-    margin-left: 8px;
-    cursor: pointer;
-}
-.signin_checkbox div:first-child label{
-    color: var(--main-color-700);
-    cursor: pointer;
-}
-.signin_checkbox p{
-    cursor: pointer;
-    color: var(--gray-color-700);
-}
 .signin_btn button{
-    background-color: var(--main-color-700);
-    padding: 5px 18px;
-    color: var(--white-color);
-    border: 0;
-    cursor: pointer;
-    font-size: var(--txt-btn);
     width: 100%;
     margin: 24px 0px;
-    border-radius: 4px;
-    text-align: center;
 }
-/* Platform Auth Component Here */
+
 
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) 
@@ -80,16 +48,6 @@
     }
     .signin_content{
         width: 100%;
-    }
-    /* Checkbox */
-    .signin_checkbox div:first-child input{
-        width: 12px;
-    }
-    .signin_checkbox div:first-child label{
-        font-size: 0.9rem;
-    }
-    .signin_checkbox p{
-        font-size: 0.9rem;
     }
 }
 /* Small devices (landscape phones, 576px and up) */
@@ -101,16 +59,6 @@
     .signin_content{
         width: 100%;
     }
-    /* Checkbox */
-    .signin_checkbox div:first-child input{
-        width: 12px;
-    }
-    .signin_checkbox div:first-child label{
-        font-size: 0.9rem;
-    }
-    .signin_checkbox p{
-        font-size: 0.9rem;
-    }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) 
@@ -120,16 +68,6 @@
     }
     .signin_content{
         width: 100%;
-    }
-    /* Checkbox */
-    .signin_checkbox div:first-child input{
-        width: 12px;
-    }
-    .signin_checkbox div:first-child label{
-        font-size: 0.9rem;
-    }
-    .signin_checkbox p{
-        font-size: 0.9rem;
     }
 }
 /* Large devices (desktops, 992px and up) */

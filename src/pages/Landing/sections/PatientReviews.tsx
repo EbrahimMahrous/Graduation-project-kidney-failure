@@ -5,6 +5,8 @@ import reviewPhoto1 from '../../../assets/landing/PatientReviews/PatientReview-1
 import reviewPhoto2 from '../../../assets/landing/PatientReviews/PatientReview-2.png'
 import reviewPhoto3 from '../../../assets/landing/PatientReviews/PatientReview-3.png'
 import reviewPhoto4 from '../../../assets/landing/PatientReviews/PatientReview-4.png'
+// ** Components
+import HeaderLanding from '../../../components/Landing/HeaderLanding'
 
 
 
@@ -19,11 +21,10 @@ export default function PatientReviews({sectionId}: ISection) {
             <section className= {style.section} id = {sectionId}>
                 <div className= {style.patient_reviews_container}>
                     <div className= {style.patient_reviews_content}>
-                        {/* Top */}
-                        <div className= {style.patient_reviews_Title}>
-                            <h3>آراء المرضى:</h3>
-                            <p>اكتشف كيف أحدثنا فرقاً في حياتهم من خلال تجارب من قدمنا لهم الرعاية.</p>
-                        </div>
+                        <HeaderLanding
+                            title= 'آراء المرضى:'
+                            description= 'اكتشف كيف أحدثنا فرقاً في حياتهم من خلال تجارب من قدمنا لهم الرعاية.'
+                        />
                         <div className= {style.patient_reviews_nums}>
                             <div className= {style.num}>
                                 <h3>+50</h3>

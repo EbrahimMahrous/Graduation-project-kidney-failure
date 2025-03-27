@@ -29,19 +29,7 @@
 .contactUs_content{
     
 }
-/* Top */
-.contactUs_Title{
-    text-align: center;
-}
-.contactUs_Title h3{
-    font-size: var(--font-h4);
-    color: var(--main-color-700);
-}
-.contactUs_Title p{
-    font-size: var(--font-p);
-    margin-bottom: calc(8*6px);
-}
-/* Bottom */
+
 .contactUs_main{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -49,76 +37,21 @@
     gap: 16px;
 }
 /* Form */
-/* row one */
 .contactUs_Form{
     width: 100%;
     height: 100%;
 }
 .input_names{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    gap: 16px;
+    gap: 8px;
 }
-.name{
-    display: flex;
-    flex-direction: column;
+.input_names > *{
     width: 100%;
 }
-.name input{
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid var(--gray-color-400);
-}
-/* row tow */
-.input_email{
-    display: flex;
-    flex-direction: column;
-}
-.input_email input{
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid var(--gray-color-400);
-    margin-bottom: 24px;
-}
-/* row three */
-.input_placeholder{
-    display: flex;
-    flex-direction: column;
-}
-.input_placeholder textarea{
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid var(--gray-color-400);
-    margin-bottom: 16px;
+.button_send_mg{
     width: 100%;
-    height: 17rem;
-}
-/* row four */
-.input_checkbox{
-
-}
-.input_checkbox input{
-    margin-left: 12px;
-    cursor: pointer;
-}
-.input_checkbox label{
-    font-size: var(--font-p);
-}
-.input_checkbox label a{
-    color: var(--main-color-700);
-    text-decoration: none;
-}
-/* row five */
-.button_send{
-    width: 100%;
-    background-color: var(--main-color-700);
-    padding: 5px 18px;
-    color: var(--white-color);
-    border: 0;
-    cursor: pointer;
-    font-size: var(--font-p);
     margin-top: 16px;
-    
 }
 /* Photo */
 .contactUs_photo{
@@ -134,9 +67,6 @@
     .contactUs_main{
         grid-template-columns: 1fr;
     }
-    .input_placeholder textarea{
-        height: 10rem;
-    }
     .contactUs_photo img{
         display: block;
         width: 100%;
@@ -150,9 +80,6 @@
     .contactUs_main{
         grid-template-columns: 1fr;
     }
-    .input_placeholder textarea{
-        height: 10rem;
-    }
     .contactUs_photo img{
         display: block;
         width: 100%;
@@ -164,9 +91,6 @@
 {
     .contactUs_main{
         grid-template-columns: 1fr;
-    }
-    .input_placeholder textarea{
-        height: 10rem;
     }
     .contactUs_photo img{
         display: block;
@@ -181,9 +105,6 @@
         display: block;
         width: 100%;
         margin: auto;
-    }
-    .input_placeholder textarea{
-        height: 10rem;
     }
 }
 /* Extra large devices (large desktops, 1200px and up) */
