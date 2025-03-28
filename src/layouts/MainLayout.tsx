@@ -1,5 +1,7 @@
 // ** Render child routes
 import { Outlet } from "react-router-dom";
+import NavBar from "../components/NavBar/NavBar";
+
 
 
 
@@ -9,9 +11,9 @@ import { Outlet } from "react-router-dom";
 export default function MainLayout(){
     return (
         <>
-            <Outlet />
             <div>
-                main layout
+                <NavBar />
+                <Outlet />
             </div>
         </>
     );

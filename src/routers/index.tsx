@@ -13,6 +13,11 @@ import NewPassword from "../pages/auth/NewPassword";
 import Done from "../pages/auth/Done";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/main/Home";
+import Consultation from "../pages/main/Consultation";
+import AllowAndNotAllow from "../pages/main/AllowAndNotAllow";
+import DoctorDetails from "../pages/main/DoctorDetails";
+import BookingDetails from "../pages/main/BookingDetails";
+import Remmeber from "../pages/main/Remmeber";
 
 
 
@@ -41,6 +46,11 @@ export default function Routers(){
                 {/* main layout */}
                 <Route path="/m" element = {<MainLayout/>}>
                     <Route index element= {<Home/>}/>
+                    <Route path="allow-notAllow"  element= {<AllowAndNotAllow/>}/>
+                    <Route path="consultation"  element= {<Consultation/>}/>
+                    <Route path="doctor/:id"  element= {<DoctorDetails/>}/>
+                    <Route path="booking-details"  element= {<BookingDetails/>}/>
+                    <Route path="remmeber"  element= {<Remmeber/>}/>
                 </Route>
             </Routes>
         </>

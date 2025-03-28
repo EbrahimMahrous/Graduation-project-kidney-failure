@@ -59,7 +59,7 @@ nav{
 .active {
     color: var(--main-color-700);
     border-bottom: 2px solid var(--main-color-700);
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 .auth_btns{
     display: flex;
@@ -70,7 +70,65 @@ nav{
 .auth_btns button{
     margin: 0px 2px;
 }
+.userLoggedIcon{
+    border: 0;
+    background-color: var(--white-color);
+    cursor: pointer;
+}
+/* Arrow */
+.menu {
+    /* position: relative; */
+}
 
+.navItem {
+    /* position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px 12px; */
+}
+
+.arrowContainer {
+    position: relative;
+    align-items: center;
+}
+
+.arrowIcon {
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.arrowContainer:hover .arrowIcon {
+    transform: rotate(180deg);
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 90%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    min-width: 110px;
+    z-index: 100;
+}
+
+.dropdownMenu li {
+    font-size: 0.8rem;
+    padding: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dropdownMenu li:hover {
+    background: rgba(2, 106, 162, 0.05);
+    border-radius: 6px;
+}
 
 
 /* Start media query */

@@ -12,9 +12,15 @@ import InputElement from "../../components/ui/InputElement";
 import InputPasswordElement from "../../components/ui/InputPasswordElement";
 import CheckboxElement from "../../components/ui/CheckboxElement";
 import ButtonElement from "../../components/ui/ButtonElement";
-
+// ** Redux
+import { useDispatch } from "react-redux";
+import {login} from '../../App/slices/userSlice'
 
 export default function SignIn() {
+
+  // ** Redux
+  const dispatch = useDispatch()
+
   // ** Defaults
   const navigate = useNavigate();
 
@@ -34,8 +40,28 @@ export default function SignIn() {
   };
   const loginHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log('userSignInData', userData);
-    navigate("/m");
+
+    if (userData.password.length > 8 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.userEmail)) {
+      const userInfo = {
+        email: userData.userEmail,
+        name: null,
+        loggedIn: true,
+        userData: undefined,
+      };
+  
+
+      localStorage.setItem("user", JSON.stringify(userInfo));
+
+      dispatch(login(userInfo));
+
+      navigate("/m");
+    } else {
+      alert(`
+        يرجى إدخال البريد الإلكتروني بشكل صحيح
+        يرجى إدخال كلمة المرور (على الأقل 8 أحرف)
+
+      `);
+    }
   };
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>)=> {
