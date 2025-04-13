@@ -7,6 +7,7 @@
     --gray-color-800: #373737;
     --gray-color-900: #282828;
     --white-color: #fff;
+    --hover-color: #007bff1a;
     --font-p: 1.25rem;
     --txt-btn: 1rem;
     --font-h3: 1.625rem;
@@ -72,63 +73,86 @@ nav{
 }
 .userLoggedIcon{
     border: 0;
-    background-color: var(--white-color);
-    cursor: pointer;
-}
-/* Arrow */
-.menu {
-    /* position: relative; */
-}
-
-.navItem {
-    /* position: relative;
     display: flex;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--hover-color);
     cursor: pointer;
-    padding: 8px 12px; */
+}
+.activeButton{
+    background-color: var(--main-color-700);
 }
 
-.arrowContainer {
+/* Arrow Up Down */
+.container_arrow {
     position: relative;
-    align-items: center;
 }
-
-.arrowIcon {
-    font-size: 16px;
+.arrow_icon{
+    font-size: 24px;
     cursor: pointer;
     transition: 0.3s ease;
 }
-
-.arrowContainer:hover .arrowIcon {
+.container_arrow:hover .arrow_icon {
     transform: rotate(180deg);
 }
-
-.dropdownMenu {
+.menu_dropdown_arrow{
     position: absolute;
     top: 90%;
     left: 0;
     background: white;
     border: 1px solid #ddd;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    min-width: 110px;
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 100px;
     z-index: 100;
 }
-
-.dropdownMenu li {
+.menu_dropdown_arrow li {
+    width: 70%;
     font-size: 0.8rem;
-    padding: 6px;
+    padding: 4px;
     cursor: pointer;
     transition: 0.3s ease;
 }
-
-.dropdownMenu li:hover {
-    background: rgba(2, 106, 162, 0.05);
+.menu_dropdown_arrow li:hover {
+    background: var(--hover-color);
     border-radius: 6px;
 }
+/* Setting Menu */
+.auth_btns{
+    position: relative;
+}
+.menu_dropdown_settings {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 180px;
+}
+.menu_dropdown_settings li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.menu_dropdown_settings li:hover {
+    background: var(--hover-color);
+    border-radius: 6px;
+}
+
 
 
 /* Start media query */
@@ -156,6 +180,9 @@ nav{
     .auth_btns{
         display: none;
     }
+    .menu_dropdown_arrow{
+        right: 0;
+    }
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) 
@@ -181,6 +208,9 @@ nav{
     .auth_btns{
         display: none;
     }
+    .menu_dropdown_arrow{
+        right: 0;
+    }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) 
@@ -205,6 +235,9 @@ nav{
     }
     .auth_btns{
         display: none;
+    }
+    .menu_dropdown_arrow{
+        right: 0;
     }
 }
 /* Large devices (desktops, 992px and up) */

@@ -11,9 +11,10 @@ interface IButtonElementProps {
     variant?: 'primary' | 'secondary';
     className?: string;
     type?: "button" | "submit" | "reset";
+    imgButton?: string
 }
 
-const ButtonElement = ({ txt, onClick, variant = 'primary', className, type = 'button' }: IButtonElementProps) => {
+const ButtonElement = ({ txt, onClick, variant = 'primary', className, type = 'button', imgButton }: IButtonElementProps) => {
     
 
     const buttonClass = [
@@ -28,7 +29,8 @@ const ButtonElement = ({ txt, onClick, variant = 'primary', className, type = 'b
             onClick={onClick}
             className= {buttonClass}
         >
-            {txt}
+            {txt} 
+            {imgButton && <img style={{width: '16px'}} src={imgButton} alt="Button Image" />}
         </button>
     );
 };

@@ -1,0 +1,158 @@
+Start Variables
+:root
+{
+    --main-color-700: #026AA2;
+    --second-color: #EFF9FF;
+    --gray-color-400: #AFAFAF;
+    --gray-color-700: #515151;
+    --gray-color-800: #373737;
+    --gray-color-900: #282828;
+    --white-color: #fff;
+    --hover-color: #007bff1a;
+    --font-p: 1.25rem;
+    --txt-btn: 1rem;
+    --font-h3: 1.625rem;
+    --font-h4: 1.3rem;
+}
+/* End Variables */
+
+
+ 
+
+
+
+/* Start Modal */
+.modal_container_overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.modal_content {
+    background: var(--white-color);
+    padding: 20px;
+    border-radius: 12px;
+    width: 450px;
+}
+.box_upload_content {
+    border: 2px dashed var(--main-color-700);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 16px;
+    cursor: pointer;
+}
+.box_upload_content.drag_active {
+    background-color: var(--hover-color);
+}
+.upload_file_photo{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.box_upload_content label{
+    display: inline-block;
+    color: var(--main-color-700);
+    border: 1px solid var(--main-color-700);
+    padding: 2px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.box_upload_content label:hover {
+    background-color: var(--hover-color);
+}
+/* File Uploaded */
+.file_uploaded_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0px;
+    border: 1px solid #ddd;
+}
+.file_uploaded_container p {
+    padding-right: 10px;
+    line-height: 5px;
+}
+.file_delete_button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    line-height: 5px;
+}
+/* Modal Buttons */
+.modal_buttons{
+    display: flex;
+    justify-content: end;
+    gap: 16px;
+    margin-top: 24px;
+}
+/* Results */
+.result_container{
+    text-align: center;
+}
+.result_container h3{
+    color: var(--main-color-700);
+    margin-bottom: 12px;
+}
+.result_container img{
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: auto;
+}
+.result_container p{
+    font-size: var(--font-p);
+}
+/*  Button Results */
+.result_buttons {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.result_buttons img{
+    display: inline-block;
+    margin-right: 8px;
+}
+
+
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) 
+{
+
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) 
+{
+
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) 
+{
+
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) 
+{
+
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) 
+{
+
+}
+/* End Modal */
+
+
+

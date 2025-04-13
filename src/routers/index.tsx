@@ -18,6 +18,7 @@ import AllowAndNotAllow from "../pages/main/AllowAndNotAllow";
 import DoctorDetails from "../pages/main/DoctorDetails";
 import BookingDetails from "../pages/main/BookingDetails";
 import Remmeber from "../pages/main/Remmeber";
+import Complaints from "../pages/main/Complaints";
 
 
 
@@ -51,6 +52,7 @@ export default function Routers(){
                     <Route path="doctor/:id"  element= {<DoctorDetails/>}/>
                     <Route path="booking-details"  element= {<BookingDetails/>}/>
                     <Route path="remmeber"  element= {<Remmeber/>}/>
+                    <Route path="complaints"  element= {<Complaints/>}/>
                 </Route>
             </Routes>
         </>
