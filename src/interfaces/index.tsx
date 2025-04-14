@@ -27,7 +27,17 @@ export interface IHeaderAuth{
 }
 
 
-
+// Allow And not Alow
+export interface IAllowAndNotAllowData{
+    allow: {
+        food: string[],
+        drinks: string[]
+    },
+    notAllow: {
+        food: string[],
+        drinks: string[]
+    }
+}
 
 
 

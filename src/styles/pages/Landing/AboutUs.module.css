@@ -23,7 +23,7 @@
 .section_container{
     width: 90%;
     margin: auto;
-    padding: calc(16* 8px) 0px 0px 0px;
+    padding: calc(8* 6px) 0px 0px 0px;
 }
 .section_content{
     display: grid;
