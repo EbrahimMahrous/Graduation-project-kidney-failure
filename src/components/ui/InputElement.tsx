@@ -23,7 +23,7 @@ const InputElement = ({id, name, type = 'text', value = '', placeholder = '', im
                         placeholder={placeholder}
                         value={value}
                         onChange={onChange}
-                        autoComplete="off"
+                        autoComplete="on"
                     />
                     {img && <img src={img.src} alt={img.alt} />}
                 </div>

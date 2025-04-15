@@ -9,6 +9,7 @@ interface IImage {
 // ** Input component props
 export interface IInputElement extends InputHTMLAttributes<HTMLInputElement>{
     id: string,
+    label?: string,
     name: string,
     type: string,
     placeholder: string,

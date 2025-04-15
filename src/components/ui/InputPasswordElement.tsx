@@ -34,7 +34,7 @@ const InputPasswordElement = ({id, name, type= 'password', value= '', placeholde
                         value={value}
                         placeholder= {placeholder} 
                         onChange={onChange}
-                        autoComplete="off"
+                        autoComplete="on"
                     />
                     <img src= {lockClosed} alt= {'lock Closed'} />
                     <span 
