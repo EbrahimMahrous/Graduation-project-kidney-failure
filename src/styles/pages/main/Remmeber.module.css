@@ -1,200 +1,183 @@
 /* Start Variables */
-:root
-{
-    --main-color-700: #026AA2;
-    --second-color: #EFF9FF;
-    --red-color: #ff0000d2;
-    --gray-color-400: #AFAFAF;
-    --gray-color-700: #515151;
-    --gray-color-800: #373737;
-    --gray-color-900: #282828;
-    --white-color: #fff;
-    --font-lable: 1rem;
-    --font-p: 1.25rem;
-    --txt-btn: 1rem;
-    --font-h3: 1.625rem;
-    --font-h4: 1.3rem;
+:root {
+  --main-color-700: #026aa2;
+  --second-color: #eff9ff;
+  --red-color: #ff0000d2;
+  --gray-color-400: #afafaf;
+  --gray-color-700: #515151;
+  --gray-color-800: #373737;
+  --gray-color-900: #282828;
+  --white-color: #fff;
+  --font-lable: 1rem;
+  --font-p: 1.25rem;
+  --txt-btn: 1rem;
+  --font-h3: 1.625rem;
+  --font-h4: 1.3rem;
 }
 /* End Variables */
 
-
-
-
-
-
 /* Start Remmeber */
 /* column */
-.remmeber_container{
-    position: relative;
-    width: 90%;
-    height: 80vh;
-    margin: auto;
+.remmeber_container {
+  position: relative;
+  width: 90%;
+  height: 80vh;
+  margin: auto;
 }
-.remmeber_icons{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    margin-top: 48px;
-    justify-content: start;
-    gap: 56px;
-    width: 25%;
-    height: 100%;
+.remmeber_icons {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin-top: 48px;
+  justify-content: start;
+  gap: 56px;
+  width: 25%;
+  height: 100%;
 }
-.remmeber_add_btn{
-    position: fixed;
-    background-color: transparent;
-    border: 0;
-    bottom: 0;
+.remmeber_add_btn {
+  position: fixed;
+  background-color: transparent;
+  border: 0;
+  bottom: 0;
 }
-.remmeber_add_btn img{
-    width: 75px;
+.remmeber_add_btn img {
+  width: 75px;
 }
 /* Modal */
-.remmeber_modal_container{
-    width: 450px;
-    max-width: 100%;
-    padding: 16px;
-    border-radius: 8px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    background-color: var(--white-color);
+.remmeber_modal_container {
+  width: 360px;
+  max-width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  background-color: var(--white-color);
 }
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
 }
-.remmeber_modal_container h3{
-    text-align: center;
-    font-size: var(--font-h3);
-    color: var(--main-color-700);
-    font-weight: 500;
+.remmeber_modal_container h3 {
+  text-align: center;
+  font-size: var(--font-h3);
+  color: var(--main-color-700);
+  font-weight: 500;
 }
-.remmeber_btns{
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 16px;
+.remmeber_btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
 }
-.remmeber_btn{
-    width: 100%; 
+.remmeber_btn {
+  width: 100%;
 }
 /* Table Remeber */
-.remmeber_table{
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 8px;
-    width: 80%;
-    margin: auto;
-    text-align: center;
+.remmeber_table {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+  width: 75%;
+  margin: auto;
+  text-align: center;
 }
-.remmeber_table tr{
-    
+.remmeber_table tr {
 }
-.remmeber_table td{
-   color: var(--main-color-700);
-   font-weight: 600;
+.remmeber_table td {
+  color: var(--main-color-700);
+  font-weight: 600;
 }
-.remmeber_table tr td p{
-    color: var(--gray-color-800);
+.remmeber_table tr td p {
+  color: var(--gray-color-800);
 }
-.setting_icon{
-    position: absolute;
-    top: 0px;
-    left: 12px;
-    width: 4px;
-    margin-bottom: 16px;
-    cursor: pointer;
+.setting_icon {
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  width: 4px;
+  margin-bottom: 16px;
+  cursor: pointer;
 }
-.remmeber_dropdown_setting_container{
-    
+.remmeber_dropdown_setting_container {
 }
-.remmeber_dropdown_setting{
-    position: absolute;
-    top: -12px;
-    left: 32px;
-    background-color: var(--white-color);
-    border-radius: 8px;
-    width: 80px;
-    max-width: 100%;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    z-index: 998;
+.remmeber_dropdown_setting {
+  position: absolute;
+  top: -12px;
+  left: 32px;
+  background-color: var(--white-color);
+  border-radius: 8px;
+  width: 80px;
+  max-width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 998;
 }
-.remmeber_dropdown_setting button{
-    border: 0;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    cursor: pointer;
-    padding: 8px 0px;
-    line-height: 18px;
+.remmeber_dropdown_setting button {
+  border: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 8px 0px;
+  line-height: 18px;
 }
-.remmeber_dropdown_setting button:first-child{
-    border-bottom: 1px solid var(--gray-color-400);
+.remmeber_dropdown_setting button:first-child {
+  border-bottom: 1px solid var(--gray-color-400);
 }
-.remmeber_dropdown_setting button:hover{
-    background-color: var(--second-color);
+.remmeber_dropdown_setting button:hover {
+  background-color: var(--second-color);
 }
 
 /* Add new table */
-.add_new_table{
-    width: 100%;
-    margin: 16px auto;
-    text-align: r;
-    border: 1px solid var(--main-color-700);
-    border-radius: 8px;
-    padding: 16px 0px;
+.add_new_table {
+  width: 100%;
+  margin: 16px auto;
+  text-align: r;
+  border: 1px solid var(--main-color-700);
+  border-radius: 8px;
+  padding: 16px 0px;
 }
-.add_new_table_row{
-    position: relative;
+.add_new_table_row {
+  position: relative;
 }
 /* Extra small devices (phones, portrait) */
-@media (max-width: 575.98px) 
-{
-    .add_new_table_row{
-        display: grid;
-        grid-template-columns: 1fr;
-        text-align: right;
-        margin-right: 32px;
-        gap: 8px;
-    }
+@media (max-width: 575.98px) {
+  .add_new_table_row {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: right;
+    margin-right: 32px;
+    gap: 8px;
+  }
 }
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) 
-{
-    .add_new_table_row{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        text-align: right;
-        margin-right: 32px;
-        gap: 8px;
-    }
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .add_new_table_row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: right;
+    margin-right: 32px;
+    gap: 8px;
+  }
 }
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) 
-{
-
+@media (min-width: 768px) and (max-width: 991.98px) {
 }
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) 
-{
-
+@media (min-width: 992px) and (max-width: 1199.98px) {
 }
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) 
-{
-
+@media (min-width: 1200px) {
 }
-/* End media query */
 /* End Remmeber */

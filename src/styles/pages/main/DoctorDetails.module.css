@@ -1,0 +1,231 @@
+/* Start Variables */
+:root {
+  --main-color-700: #026aa2;
+  --second-color: #dff1fe;
+  --red-color: #ff0000d2;
+  --gray-color-400: #afafaf;
+  --gray-color-700: #515151;
+  --gray-color-800: #373737;
+  --gray-color-900: #282828;
+  --white-color: #fff;
+  --font-lable: 1rem;
+  --font-p: 1.25rem;
+  --txt-btn: 1rem;
+  --font-h3: 1.625rem;
+  --font-h4: 1.3rem;
+}
+/* End Variables */
+
+/* Start Doctor Details */
+.doctor_details_container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--main-color-700);
+  border-radius: 16px;
+  padding: 72px 16px;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+/* Right */
+.doctor_details_info {
+  display: flex;
+  align-items: center;
+}
+.doctor_details_header {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.doctor_details_header span {
+  color: var(--main-color-700);
+  font-weight: bold;
+}
+.doctor_photo {
+  width: 160px;
+}
+.doctor_header_info {
+}
+.doctor_header_info h2 {
+  color: var(--main-color-700);
+  font-size: var(--font-h3);
+}
+.doctor_header_info p:first-of-type {
+  font-size: var(--font-p);
+}
+
+.doctor_footer_info {
+  margin-top: 16px;
+  line-height: 40px;
+}
+.doctor_footer_info div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.doctor_footer_info div img {
+  width: 24px;
+}
+/* Left */
+.doctor_details_booking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 0px;
+}
+.doctor_details_booking_content {
+  /* Btn Table Btn */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.arrow {
+  margin: auto;
+  background-color: var(--second-color);
+  color: var(--main-color-700);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: bold;
+}
+.prev_arrow {
+  
+}
+.next_arrow {
+  
+}
+.doctor_details_table_wrapper {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.doctor_details_table {
+  border: 1px solid var(--main-color-700);
+  border-radius: 8px 8px 6px 6px;
+  text-align: center;
+  width: 100%;
+  line-height: 16px;
+}
+.doctor_details_table thead {
+}
+.doctor_details_table thead tr th {
+  background-color: var(--second-color);
+  padding: 16px 48px;
+  border-radius: 8px 8px 0px 0px;
+}
+.doctor_details_table tbody tr {
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+.doctor_details_table tbody tr td {
+  padding: 8px 0px;
+  border-top: 1px solid var(--main-color-700);
+}
+.booking_button {
+  width: 100%;
+  margin-top: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 0;
+  padding: 6px 0px;
+  color: var(--white-color);
+  background-color: var(--main-color-700);
+}
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) {
+  .doctor_details_container {
+    width: 90%;
+    margin: 16px auto;
+    grid-template-columns: 1fr;
+  }
+  .doctor_details_booking {
+    width: 95%;
+  }
+  .doctor_details_header {
+    align-items: center;
+    flex-direction: column;
+  }
+  .doctor_details_booking_content {
+    /* Btn Table Btn */
+    width: 100%;
+  }
+  .doctor_details_table_wrapper {
+    width: 25%;
+    margin: auto;
+  }
+  .doctor_details_table {
+    line-height: 12px;
+  }
+  .doctor_details_table thead tr th {
+    padding: 8px 16px;
+  }
+  .doctor_details_table tbody tr {
+    font-size: 12px;
+  }
+  .doctor_details_table tbody tr td {
+    padding: 8px 0px;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .doctor_details_container {
+    width: 90%;
+    margin: 16px auto;
+    grid-template-columns: 1fr;
+  }
+  .doctor_details_booking {
+    width: 95%;
+  }
+  .doctor_details_header {
+    align-items: center;
+    flex-direction: column;
+  }
+  .doctor_details_booking_content {
+    /* Btn Table Btn */
+    width: 100%;
+  }
+  .doctor_details_table_wrapper {
+    width: 25%;
+    margin: auto;
+  }
+  .doctor_details_table {
+    line-height: 12px;
+  }
+  .doctor_details_table thead tr th {
+    padding: 8px 16px;
+  }
+  .doctor_details_table tbody tr {
+    font-size: 12px;
+  }
+  .doctor_details_table tbody tr td {
+    padding: 8px 0px;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .doctor_details_container {
+    grid-template-columns: 1fr;
+  }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .prev_arrow {
+  }
+  .next_arrow {
+    margin-left: 16px;
+  }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .next_arrow {
+    margin-left: 16px;
+  }
+}
+/* End Doctor Details */

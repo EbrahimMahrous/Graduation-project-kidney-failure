@@ -1,0 +1,109 @@
+/* Start Variables */
+:root {
+  --main-color-700: #026aa2;
+  --second-color: #dff1fe;
+  --red-color: #ff0000d2;
+  --gray-color-400: #afafaf;
+  --gray-color-700: #515151;
+  --gray-color-800: #373737;
+  --gray-color-900: #282828;
+  --white-color: #fff;
+  --font-lable: 1rem;
+  --font-p: 1.25rem;
+  --txt-btn: 1rem;
+  --font-h3: 1.625rem;
+  --font-h4: 1.3rem;
+}
+/* End Variables */
+
+.booking_details_container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.booking_details_content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+}
+.booking_details_info {
+  line-height: 36px;
+}
+.booking_details_info h3 {
+  margin-top: 36px;
+  margin-bottom: 16px;
+  font-size: var(--font-h3);
+  color: var(--main-color-700);
+}
+.booking_details_info div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.booking_details_info img {
+  width: 20px;
+}
+.booking_details_info span {
+}
+.booking_details_content_photo img {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 36px;
+}
+
+.booking_details_download {
+  width: 260px;
+  margin: auto;
+}
+.booking_details_download_btn {
+  width: 100%;
+  margin: 24px auto;
+}
+.booking_details_download_btn img {
+  margin-right: 8px;
+}
+
+/* Extra small devices (phones, portrait) */
+@media (max-width: 575.98px) {
+  .booking_details_content {
+    grid-template-columns: 1fr;
+  }
+  .booking_details_content_photo {
+    grid-row: 1;
+  }
+  .booking_details_content_photo img {
+    margin: 36px 16px 36px 0px;
+  }
+  .booking_details_download {
+    width: 360px;
+    margin: auto;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .booking_details_content {
+    grid-template-columns: 1fr;
+  }
+  .booking_details_content_photo {
+    grid-row: 1;
+  }
+  .booking_details_content_photo img {
+    margin: 36px 16px 36px 0px;
+  }
+  .booking_details_download {
+    width: 360px;
+    margin: auto;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

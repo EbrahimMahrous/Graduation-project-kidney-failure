@@ -1,5 +1,5 @@
 // ** Router components
-import {Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 // ** Pages
 import LandingPageLayout from "../layouts/LandingPageLayout";
 import LandingPage from "../pages/Landing/LandingPage";
@@ -20,42 +20,37 @@ import BookingDetails from "../pages/main/BookingDetails";
 import Remmeber from "../pages/main/Remmeber";
 import Complaints from "../pages/main/Complaints";
 
+export default function Routers() {
+  return (
+    <>
+      <Routes>
+        {/* landing page layout */}
+        <Route path="/" element={<LandingPageLayout />}>
+          <Route index element={<LandingPage />} />
+        </Route>
 
+        {/* auth layout */}
+        <Route path="/u" element={<AuthLayout />}>
+          <Route index element={<Welcome />} />
+          <Route path="sign-in" element={<SignIn />} />
+          <Route path="sign-up" element={<SignUp />} />
+          <Route path="forget-password" element={<ForgetPassword />} />
+          <Route path="otp" element={<Otp />} />
+          <Route path="new-password" element={<NewPassword />} />
+          <Route path="done" element={<Done />} />
+        </Route>
 
-
-
-export default function Routers(){
-    return (
-        <>
-            <Routes>
-                {/* landing page layout */}
-                <Route path="/" element = {<LandingPageLayout/>}>
-                    <Route index element = {<LandingPage/>}/>
-                </Route>
-
-                {/* auth layout */}
-                <Route path="/u" element = {<AuthLayout/>}>
-                    <Route index element = {<Welcome/>}/>
-                    <Route path="sign-in" element = {<SignIn/>}/>
-                    <Route path="sign-up" element = {<SignUp/>}/>
-                    <Route path="forget-password" element = {<ForgetPassword/>}/>
-                    <Route path="otp" element = {<Otp/>}/>
-                    <Route path="new-password" element = {<NewPassword/>}/>
-                    <Route path="done" element = {<Done/>}/>
-                </Route>
-
-                {/* main layout */}
-                <Route path="/m" element = {<MainLayout/>}>
-                    <Route index element= {<Home/>}/>
-                    <Route path="allow-notAllow"  element= {<AllowAndNotAllow/>}/>
-                    <Route path="consultation"  element= {<Consultation/>}/>
-                    <Route path="doctor/:id"  element= {<DoctorDetails/>}/>
-                    <Route path="booking-details"  element= {<BookingDetails/>}/>
-                    <Route path="remmeber"  element= {<Remmeber/>}/>
-                    <Route path="complaints"  element= {<Complaints/>}/>
-                </Route>
-            </Routes>
-        </>
-    );
+        {/* main layout */}
+        <Route path="/m" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="allow-notAllow" element={<AllowAndNotAllow />} />
+          <Route path="consultation" element={<Consultation />} />
+          <Route path="doctor/:id" element={<DoctorDetails />} />
+          <Route path="booking-details" element={<BookingDetails />} />
+          <Route path="remmeber" element={<Remmeber />} />
+          <Route path="complaints" element={<Complaints />} />
+        </Route>
+      </Routes>
+    </>
+  );
 }
-
