@@ -19,6 +19,9 @@ import DoctorDetails from "../pages/main/DoctorDetails";
 import BookingDetails from "../pages/main/BookingDetails";
 import Remmeber from "../pages/main/Remmeber";
 import Complaints from "../pages/main/Complaints";
+import Profile from "../pages/main/Profile";
+import Settings from "../pages/main/Settings";
+import EditPassword from "../pages/auth/EditPassword";
 
 export default function Routers() {
   return (
@@ -37,6 +40,7 @@ export default function Routers() {
           <Route path="forget-password" element={<ForgetPassword />} />
           <Route path="otp" element={<Otp />} />
           <Route path="new-password" element={<NewPassword />} />
+          <Route path="edit-password" element={<EditPassword/>} />
           <Route path="done" element={<Done />} />
         </Route>
 
@@ -49,6 +53,8 @@ export default function Routers() {
           <Route path="booking-details" element={<BookingDetails />} />
           <Route path="remmeber" element={<Remmeber />} />
           <Route path="complaints" element={<Complaints />} />
+          <Route path="profile" element={<Profile/>}/>
+          <Route path="settings" element={<Settings/>}/>
         </Route>
       </Routes>
     </>

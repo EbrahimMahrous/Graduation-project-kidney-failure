@@ -89,6 +89,14 @@ export default function NavBar(){
         navigate('/m/complaints')
     }
 
+    const profileHandler = () => {
+        navigate('/m/profile')
+    }
+
+    const settingsHandler = () => {
+        navigate('/m/settings')
+    }
+
     return (
         <>
             <nav>
@@ -181,7 +189,7 @@ export default function NavBar(){
                         {isMenuOpen && (
                             <div className={style.menu_dropdown_settings}>
                                 <ul>
-                                    <li>
+                                    <li onClick={profileHandler}>
                                         <span className={style.menuIcon}>👤</span>
                                         <span>بروفايل</span>
                                     </li>
@@ -189,7 +197,7 @@ export default function NavBar(){
                                         <span className={style.menuIcon}>⚠️</span>
                                         <span>لشكاوي والاقتراحات</span>
                                     </li>
-                                    <li onClick={complaintsHandler}>
+                                    <li onClick={settingsHandler}>
                                         <span className={style.menuIcon}>⚙</span>
                                         <span>الاعدادات</span>
                                     </li>
