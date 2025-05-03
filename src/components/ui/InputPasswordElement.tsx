@@ -20,7 +20,6 @@ const InputPasswordElement = ({id, name, type= 'password', value= '', placeholde
     // ** Handlers
     const togglePasswordVisibility=()=>{setShowPassword(prev => !prev)}
 
-
     return (
         <>
             <div className= {style.input_password_container}>
@@ -35,6 +34,7 @@ const InputPasswordElement = ({id, name, type= 'password', value= '', placeholde
                         placeholder= {placeholder} 
                         onChange={onChange}
                         autoComplete="on"
+                        // dir="auto"
                     />
                     <img src= {lockClosed} alt= {'lock Closed'} />
                     <span 

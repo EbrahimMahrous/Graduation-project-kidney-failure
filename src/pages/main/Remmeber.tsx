@@ -14,22 +14,28 @@ import calenderIcon from "../../assets/main/Remmeber/calendar.png";
 import timeIcon from "../../assets/main/Remmeber/time.png";
 import typeIcon from "../../assets/main/Remmeber/type.png";
 import settingIcon from "../../assets/main/Remmeber/setting-icon.png";
-
 // ** Components
 import InputElement from "../../components/ui/InputElement";
 import ButtonElement from "../../components/ui/ButtonElement";
 // ** Hooks
 import { useState } from "react";
+// ** Validation
+import {
+  validateWaterForm,
+  validateDialysisForm,
+  validateMedicineForm,
+} from "../../vaildation";
 
 interface IReminderData {
   type: string;
   wakeUpTime: string;
   sleepTime: string;
-  reminderFrequency: string;
+  remindrEvery: string;
   sessionsPerWeek: string;
   nextSessionDate: string;
   sessionTime: string;
   medicineName: string;
+  reminderFrequency: string;
   period: string;
   medicineTime: string;
 }
@@ -48,23 +54,46 @@ export default function Remmeber() {
     type: "",
     wakeUpTime: "",
     sleepTime: "",
-    reminderFrequency: "",
+    remindrEvery: "",
     sessionsPerWeek: "",
     nextSessionDate: "",
     sessionTime: "",
     medicineName: "",
+    reminderFrequency: "",
     period: "",
     medicineTime: "",
   });
+  const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
   const chanhgeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [id]: value,
     }));
+
+    setFormErrors((prev) => ({
+      ...prev,
+      [id]: "",
+    }));
   };
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // ✳️ Validation Step
+    let errors: { [key: string]: string } = {};
+
+    if (activeTap === "water") {
+      errors = validateWaterForm(formData);
+    } else if (activeTap === "dialysis") {
+      errors = validateDialysisForm(formData);
+    } else if (activeTap === "medicine") {
+      errors = validateMedicineForm(formData);
+    }
+  
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
 
     if (editingItem) {
       if (activeTap === "water") {
@@ -97,14 +126,16 @@ export default function Remmeber() {
       type: "",
       wakeUpTime: "",
       sleepTime: "",
-      reminderFrequency: "",
+      remindrEvery: "",
       sessionsPerWeek: "",
       nextSessionDate: "",
       sessionTime: "",
       medicineName: "",
+      reminderFrequency: "",
       period: "",
       medicineTime: "",
     });
+    setFormErrors({});
     setEditingItem(null);
     setModal(false);
   };
@@ -138,7 +169,7 @@ export default function Remmeber() {
 
   return (
     <>
-      <div className = {`${style.remmeber_container}`}>
+      <div className={`${style.remmeber_container}`}>
         <div className={style.remmeber_icons}>
           <p
             onClick={() => {
@@ -205,6 +236,7 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="اختر النوع"
                       img={{ src: typeIcon, alt: "" }}
+                      error={formErrors.type}
                     />
                     <InputElement
                       id="wakeUpTime"
@@ -214,6 +246,7 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="اكتب التوقيت"
                       img={{ src: timeIcon, alt: "" }}
+                      error={formErrors.wakeUpTime}
                     />
                     <InputElement
                       id="sleepTime"
@@ -223,15 +256,17 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="اكتب التوقيت"
                       img={{ src: timeIcon, alt: "" }}
+                      error={formErrors.sleepTime}
                     />
                     <InputElement
-                      id="reminderFrequency"
+                      id="remindrEvery"
                       type="text"
                       name="التذكير كل"
-                      value={formData.reminderFrequency}
+                      value={formData.remindrEvery}
                       onChange={chanhgeHandler}
                       placeholder="اختر التوقيت"
                       img={{ src: calenderIcon, alt: "" }}
+                      error={formErrors.remindrEvery}
                     />
                   </>
                 )}
@@ -245,6 +280,7 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="اختر العدد"
                       img={{ src: repeatIcon, alt: "" }}
+                      error={formErrors.sessionsPerWeek}
                     />
                     <InputElement
                       id="nextSessionDate"
@@ -254,6 +290,7 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="اكتب التاريخ"
                       img={{ src: calenderIcon, alt: "" }}
+                      error={formErrors.nextSessionDate}
                     />
                     <InputElement
                       id="sessionTime"
@@ -263,6 +300,7 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="اكتب الساعه"
                       img={{ src: timeIcon, alt: "" }}
+                      error={formErrors.sessionTime}
                     />
                   </>
                 )}
@@ -276,6 +314,7 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="ادخل اسم الدواء "
                       img={{ src: medicine, alt: "" }}
+                      error={formErrors.medicineName}
                     />
                     <InputElement
                       id="reminderFrequency"
@@ -285,6 +324,7 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="ادخل عدد المرات"
                       img={{ src: repeatIcon, alt: "" }}
+                      error={formErrors.reminderFrequency}
                     />
                     <InputElement
                       id="period"
@@ -294,6 +334,7 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="اختر الفتره"
                       img={{ src: calenderIcon, alt: "" }}
+                      error={formErrors.period}
                     />
                     <InputElement
                       id="medicineTime"
@@ -303,6 +344,7 @@ export default function Remmeber() {
                       onChange={chanhgeHandler}
                       placeholder="اكتب الوقت"
                       img={{ src: timeIcon, alt: "" }}
+                      error={formErrors.medicineTime}
                     />
                   </>
                 )}
@@ -327,11 +369,12 @@ export default function Remmeber() {
                         type: "",
                         wakeUpTime: "",
                         sleepTime: "",
-                        reminderFrequency: "",
+                        remindrEvery: "",
                         sessionsPerWeek: "",
                         nextSessionDate: "",
                         sessionTime: "",
                         medicineName: "",
+                        reminderFrequency: "",
                         period: "",
                         medicineTime: "",
                       });
@@ -362,7 +405,7 @@ export default function Remmeber() {
                         معاد النوم<p>{item.sleepTime}</p>
                       </td>
                       <td>
-                        التذكير كل<p>{item.reminderFrequency}</p>
+                        التذكير كل<p>{item.remindrEvery}</p>
                       </td>
                       <td>
                         <img

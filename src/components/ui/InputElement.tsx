@@ -14,6 +14,7 @@ const InputElement = ({
   onChange,
   className,
 }: IInputElement) => {
+
   return (
     <>
       <div className={style.input_element_container}>
@@ -28,6 +29,7 @@ const InputElement = ({
             onChange={onChange}
             autoComplete="on"
             className={className}
+            // dir="auto"
           />
           {img && <img src={img.src} alt={img.alt} />}
         </div>

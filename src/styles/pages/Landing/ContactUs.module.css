@@ -50,6 +50,7 @@
 .contactUs_photo {
 }
 .contactUs_photo img {
+    width: 550px;
 }
 
 /* Extra small devices (phones, portrait) */
@@ -96,7 +97,7 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .contactUs_photo img {
-    width: 100%;
+    width: 600px;
   }
 }
 /* End ContactUs */

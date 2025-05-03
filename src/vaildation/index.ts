@@ -17,7 +17,7 @@ export const contactValidation = (contact: {
     errors.firstName = "الاسم الاول مطلوب";
   }
   if (!contact.secondName.trim() || contact.secondName.length < 2) {
-    errors.secondName = "الاسم الثاني مطلوب ويجب أن يكون على الأقل حرفين";
+    errors.secondName = "الاسم الثاني مطلوب";
   }
   const emailRegex = /^\S+@\S+\.\S+$/;
   if (!contact.userEmail.trim() || !emailRegex.test(contact.userEmail)) {
@@ -31,11 +31,6 @@ export const contactValidation = (contact: {
   }
   return errors;
 };
-
-
-
-
-
 
 // ** signIn Validation
 export const signInValidation = (data: {
@@ -62,11 +57,6 @@ export const signInValidation = (data: {
   errors.rememberMe = "";
   return errors;
 };
-
-
-
-
-
 
 // ** signUp Validation
 export const signUpValidationPage1 = (data: {
@@ -167,11 +157,6 @@ export const signUpValidationPage3 = (data: {
   return errors;
 };
 
-
-
-
-
-
 // newPassword Validation
 export const validateNewPassword = (newPassword: string) => {
   const errors: { [key: string]: string } = {};
@@ -194,21 +179,11 @@ export const validateConfirmPassword = (
   return errors;
 };
 
-
-
-
-
-
 // forgetPassword Validation
 export const validateEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
-
-
-
-
-
 
 // ** editPassword Validation
 export function validateEditPasswords(
@@ -240,3 +215,32 @@ export function validateEditPasswords(
   }
   return errors;
 }
+
+// ** Remember Modal validation
+export const validateWaterForm = (formData: any) => {
+  const errors: { [key: string]: string } = {};
+  if (!formData.type) errors.type = "يرجى اختيار النوع";
+  if (!formData.wakeUpTime) errors.wakeUpTime = "يرجى إدخال معاد الاستيقاظ";
+  if (!formData.sleepTime) errors.sleepTime = "يرجى إدخال معاد النوم";
+  if (!formData.remindrEvery) errors.remindrEvery = "يرجى اختيار توقيت التذكير";
+  return errors;
+};
+export const validateDialysisForm = (formData: any) => {
+  const errors: { [key: string]: string } = {};
+  if (!formData.sessionsPerWeek)
+    errors.sessionsPerWeek = "يرجى إدخال عدد الجلسات أسبوعياً";
+  if (!formData.nextSessionDate)
+    errors.nextSessionDate = "يرجى إدخال تاريخ الجلسة القادمة";
+  if (!formData.sessionTime) errors.sessionTime = "يرجى إدخال توقيت الجلسة";
+  return errors;
+};
+export const validateMedicineForm = (formData: any) => {
+  const errors: { [key: string]: string } = {};
+  if (!formData.medicineName) errors.medicineName = "يرجى إدخال اسم الدواء";
+  if (!formData.reminderFrequency)
+    errors.reminderFrequency = "يرجى إدخال عدد مرات التكرار";
+  if (!formData.period) errors.period = "يرجى اختيار الفترة الزمنية";
+  if (!formData.medicineTime)
+    errors.medicineTime = "يرجى إدخال وقت بدء تناول الدواء";
+  return errors;
+};

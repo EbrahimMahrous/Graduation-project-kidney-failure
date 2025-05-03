@@ -247,7 +247,13 @@ export default function SignUp() {
               <label htmlFor="chronicDiseaseNo">لا</label>
             </div>
           </div>
-          <span className={style.error}>{errors.chronicDisease}</span>
+          <span
+            className={`${style.error} ${
+              errors.chronicDisease ? style.visible : ""
+            }`}
+          >
+            {errors.chronicDisease}
+          </span>
         </div>
         {/* 2 */}
         <InputElement
@@ -298,7 +304,13 @@ export default function SignUp() {
               <label htmlFor="followDoctorNo">لا</label>
             </div>
           </div>
-          <span className={style.error}>{errors.followDoctor}</span>
+          <span
+            className={`${style.error} ${
+              errors.followDoctor ? style.visible : ""
+            }`}
+          >
+            {errors.followDoctor}
+          </span>
         </div>
         {/* 5 */}
 
@@ -308,7 +320,7 @@ export default function SignUp() {
           type="text"
           value={userData.diagnosisDate}
           onChange={changeHandler}
-          placeholder="التاريخ"
+          placeholder="2024-05-02"
           img={{ src: IdIcon, alt: "Date Icon" }}
           error={errors.diagnosisDate}
         />

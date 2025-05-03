@@ -26,10 +26,7 @@
 }
 .header_landing_content{
     text-align: center;
-    /* Pat */
-    /* margin-bottom: calc(16*2px); */
-    /* footer */
-    margin-bottom: calc(16*5px);
+    margin-bottom: calc(10*5px);
 }
 .header_landing_content img{
 
@@ -40,6 +37,8 @@
 }
 .header_landing_content p{
     font-size: var(--font-p);
+    width: 75%;
+    margin: auto;
     /* Footer */
     /* width: 60%; */
     /* margin: auto; */

@@ -114,7 +114,9 @@ export default function ContactUs({ sectionId }: ISection) {
                   value={formData.reportMsg}
                   onChange={changeHandler}
                   error={errors.reportMsg}
+                  
                 />
+                
                 <CheckboxElement
                   id="isAgreed"
                   name=""

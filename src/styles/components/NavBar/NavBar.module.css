@@ -58,10 +58,22 @@ nav{
     font-size: var(--font-p);
     margin: 0px 16px;
 }
+.menu_btns{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 340px;
+}
+.menu_main_btns{
+    position: relative;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
 .active {
     color: var(--main-color-700);
     border-bottom: 2px solid var(--main-color-700);
-    /* font-weight: bold; */
 }
 .auth_btns{
     display: flex;
@@ -113,7 +125,7 @@ nav{
     justify-content: flex-start;
     width: 100%;
     min-width: 100px;
-    z-index: 100;
+    z-index: 1;
 }
 .menu_dropdown_arrow li {
     width: 70%;
@@ -139,6 +151,7 @@ nav{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     padding: 10px;
     width: 180px;
+    z-index: 1;
 }
 .menu_dropdown_settings li {
     width: 100%;
@@ -148,6 +161,7 @@ nav{
     padding: 4px;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 14px;
 }
 .menu_dropdown_settings li:hover {
     background: var(--hover-color);
@@ -248,11 +262,22 @@ nav{
         font-size: 1rem;
         margin: 0px 6px;
     }
+    .menu_btns{
+        display: none;
+    }
+    .menu_main_btns{
+        display: none;
+    }
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) 
 {
-
+    .menu_btns{
+        display: none;
+    }
+    .menu_main_btns{
+        display: none;
+    }
 }
 /* End media query */
 /* End NavBar Component */
