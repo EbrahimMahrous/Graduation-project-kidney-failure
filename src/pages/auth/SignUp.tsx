@@ -18,7 +18,12 @@ import emailIcon from "../../assets/auth/signup/email.png";
 import arrowIcon from "../../assets/auth/signup/arrow-down.png";
 import arrowUpDownlIcon from "../../assets/auth/signup/arrow-up-down.png";
 import ButtonElement from "../../components/ui/ButtonElement";
-
+// ** Validation
+import {
+  signUpValidationPage1,
+  signUpValidationPage2,
+  signUpValidationPage3,
+} from "../../vaildation";
 export default function SignUp() {
   // ** Defaults
   const navigate = useNavigate();
@@ -38,10 +43,37 @@ export default function SignUp() {
     diagnosisDate: "",
     userStage: "",
   });
+  const [errors, setErrors] = useState({
+    userName: "",
+    userId: "",
+    userPhoneNumber: "",
+    userEmail: "",
+    password: "",
+    confirmPassword: "",
+    chronicDisease: "",
+    weight: "",
+    height: "",
+    followDoctor: "",
+    diagnosisDate: "",
+    userStage: "",
+  });
 
   // ** Handlers
   const nextSignUpPageHandler = () => {
-    if (currentSignUpPage !== 3) {
+    let validationErrors = {};
+
+    if (currentSignUpPage === 1) {
+      validationErrors = signUpValidationPage1(userData);
+    } else if (currentSignUpPage === 2) {
+      validationErrors = signUpValidationPage2(userData);
+    } else if (currentSignUpPage === 3) {
+      validationErrors = signUpValidationPage3(userData);
+    }
+    const mergedErrors = { ...errors, ...validationErrors };
+    if (Object.values(validationErrors).some((error) => error !== "")) {
+      setErrors(mergedErrors);
+    } else {
+      setErrors(mergedErrors);
       setCurrentSignUpPage(currentSignUpPage + 1);
     }
   };
@@ -54,16 +86,32 @@ export default function SignUp() {
   const signInHandler = () => {
     navigate("/u/sign-in");
   };
-
   const otpHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log('userSignUpData', userData);
+    const validationErrors = signUpValidationPage3(userData);
+    const hasErrors = Object.values(validationErrors).some(
+      (error) => error !== ""
+    );
+    if (hasErrors) {
+      setErrors((prev) => ({ ...prev, ...validationErrors }));
+      return;
+    }
+    console.log("userSignUpData", userData);
     navigate("/u/otp");
   };
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    setUserData((prev) => ({ ...prev, [id]: value }));
+
+    setUserData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [id]: "",
+    }));
   };
 
   const signUpPage1Content = (
@@ -78,9 +126,9 @@ export default function SignUp() {
           onChange={changeHandler}
           placeholder="ادخل الإسم بالكامل"
           img={{ src: UserIcon, alt: "User Icon" }}
-          error="يرجى إدخال الاسم بالكامل"
+          error={errors.userName}
         />
-        <br />
+
         <InputElement
           id="userId"
           name="الرقم القومي"
@@ -89,9 +137,9 @@ export default function SignUp() {
           onChange={changeHandler}
           placeholder="ادخل الرقم القومي"
           img={{ src: IdIcon, alt: "working..." }}
-          error="يرجى إدخال الرقم القومي بشكل صحيح"
+          error={errors.userId}
         />
-        <br />
+
         <InputElement
           id="userPhoneNumber"
           name="رقم الهاتف"
@@ -100,15 +148,15 @@ export default function SignUp() {
           onChange={changeHandler}
           placeholder="ادخل رقم الهاتف"
           img={{ src: PhoneIcon, alt: "Phone Icon" }}
-          error="يرجى إدخال رقم الهاتف بشكل صحيح"
+          error={errors.userPhoneNumber}
         />
-        <br />
+
         <ButtonElement
-          className= {style.next_button}
-          txt= "التالي"
+          className={style.next_button}
+          txt="التالي"
           onClick={nextSignUpPageHandler}
-          variant= "primary"
-          type= "button"
+          variant="primary"
+          type="button"
         />
         <PlatformAuth
           title="او انشاء حساب باستخدام"
@@ -131,9 +179,9 @@ export default function SignUp() {
           placeholder="ادخل البريد الالكتروني"
           onChange={changeHandler}
           img={{ src: emailIcon, alt: "Email Icon" }}
-          error="يرجى إدخال البريد الإلكتروني بشكل صحيح"
+          error={errors.userEmail}
         />
-        <br />
+
         <InputPasswordElement
           id="password"
           name="كلمه المرور"
@@ -141,9 +189,9 @@ export default function SignUp() {
           value={userData.password}
           onChange={changeHandler}
           placeholder="ادخل كلمه المرور"
-          error="يرجى إدخال كلمة المرور (على الأقل 8 أحرف)"
+          error={errors.password}
         />
-        <br />
+
         <InputPasswordElement
           id="confirmPassword"
           name="تأكيد كلمة المرور"
@@ -151,15 +199,15 @@ export default function SignUp() {
           value={userData.confirmPassword}
           onChange={changeHandler}
           placeholder="أعد ادخل كلمة المرور"
-          error="يرجى التأكد من أن كلمة المرور تتطابق"
+          error={errors.confirmPassword}
         />
-        <br />
+
         <ButtonElement
-          className= {style.next_button}
-          txt= "التالي"
+          className={style.next_button}
+          txt="التالي"
           onClick={nextSignUpPageHandler}
-          variant= "primary"
-          type= "button"
+          variant="primary"
+          type="button"
         />
         <PlatformAuth
           title="او تسيجل الدخول باستخدام"
@@ -180,7 +228,7 @@ export default function SignUp() {
           <div>
             <div>
               <input
-                id="chronicDiseaseYes"
+                id="chronicDisease"
                 name="chronicDisease"
                 type="radio"
                 value="yes"
@@ -190,7 +238,7 @@ export default function SignUp() {
             </div>
             <div>
               <input
-                id="chronicDiseaseNo"
+                id="chronicDisease"
                 name="chronicDisease"
                 type="radio"
                 value="no"
@@ -199,10 +247,10 @@ export default function SignUp() {
               <label htmlFor="chronicDiseaseNo">لا</label>
             </div>
           </div>
-          <span className= {style.error}>يرجى اختيار الإجابة</span>
+          <span className={style.error}>{errors.chronicDisease}</span>
         </div>
         {/* 2 */}
-          <InputElement
+        <InputElement
           id="weight"
           name="الوزن"
           type="text"
@@ -210,20 +258,20 @@ export default function SignUp() {
           onChange={changeHandler}
           placeholder="ادخل وزنك"
           img={{ src: arrowUpDownlIcon, alt: "Weight Icon" }}
-          error="يرجى إدخال وزنك بشكل صحيح"
-          />
-          <br />
-          {/* 3 */}
-          <InputElement
-            id="height"
-            name="الطول"
-            type="text"
-            value={userData.height}
-            onChange={changeHandler}
-            placeholder="ادخل طولك"
-            img={{ src: arrowUpDownlIcon, alt: "Height Icon" }}
-            error="يرجى إدخال طولك بشكل صحيح"
-          />
+          error={errors.weight}
+        />
+
+        {/* 3 */}
+        <InputElement
+          id="height"
+          name="الطول"
+          type="text"
+          value={userData.height}
+          onChange={changeHandler}
+          placeholder="ادخل طولك"
+          img={{ src: arrowUpDownlIcon, alt: "Height Icon" }}
+          error={errors.height}
+        />
         <br />
         {/* 4 */}
         <div className={style.radio_container}>
@@ -231,7 +279,7 @@ export default function SignUp() {
           <div>
             <div>
               <input
-                id="followDoctorYes"
+                id="followDoctor"
                 name="followDoctor"
                 type="radio"
                 value="yes"
@@ -241,7 +289,7 @@ export default function SignUp() {
             </div>
             <div>
               <input
-                id="followDoctorNo"
+                id="followDoctor"
                 name="followDoctor"
                 type="radio"
                 value="no"
@@ -250,10 +298,10 @@ export default function SignUp() {
               <label htmlFor="followDoctorNo">لا</label>
             </div>
           </div>
-          <span className= {style.error}>يرجى اختيار الإجابة</span>
+          <span className={style.error}>{errors.followDoctor}</span>
         </div>
         {/* 5 */}
-        
+
         <InputElement
           id="diagnosisDate"
           name="تاريخ التشخيص"
@@ -262,7 +310,7 @@ export default function SignUp() {
           onChange={changeHandler}
           placeholder="التاريخ"
           img={{ src: IdIcon, alt: "Date Icon" }}
-          error="يرجى إدخال تاريخ التشخيص بشكل صحيح."
+          error={errors.diagnosisDate}
         />
         <br />
         {/* 6 */}
@@ -274,14 +322,14 @@ export default function SignUp() {
           onChange={changeHandler}
           placeholder="ادخل حالتك"
           img={{ src: arrowIcon, alt: "Stage Icon" }}
-          error="يرجى إدخال حالتك بشكل صحيح"
+          error={errors.userStage}
         />
         <ButtonElement
-          className= {style.sign_up_button}
-          txt= "انشاء حساب"
+          className={style.sign_up_button}
+          txt="انشاء حساب"
           onClick={otpHandler}
-          variant= "primary"
-          type= "submit"
+          variant="primary"
+          type="submit"
         />
       </div>
     </div>

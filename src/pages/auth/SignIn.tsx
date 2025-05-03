@@ -14,22 +14,25 @@ import CheckboxElement from "../../components/ui/CheckboxElement";
 import ButtonElement from "../../components/ui/ButtonElement";
 // ** Redux
 import { useDispatch } from "react-redux";
-import {login} from '../../App/slices/userSlice'
+import { login } from "../../App/slices/userSlice";
+// ** Validation
+import { signInValidation } from "../../vaildation";
 
 export default function SignIn() {
+  const dispatch = useDispatch();
 
-  // ** Redux
-  const dispatch = useDispatch()
-
-  // ** Defaults
   const navigate = useNavigate();
 
-  // ** States
   const [userData, setUserData] = useState({
     userEmail: "",
     password: "",
     rememberMe: false,
-  })
+  });
+  const [errors, setErrors] = useState({
+    userEmail: "",
+    password: "",
+    rememberMe: "",
+  });
 
   // ** Handelers
   const forGetPasswordHandler = () => {
@@ -40,38 +43,31 @@ export default function SignIn() {
   };
   const loginHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
-    if (userData.password.length > 8 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.userEmail)) {
-      const userInfo = {
-        email: userData.userEmail,
-        name: null,
-        loggedIn: true,
-        userData: undefined,
-      };
-  
-
-      localStorage.setItem("user", JSON.stringify(userInfo));
-
-      dispatch(login(userInfo));
-
-      navigate("/m");
-    } else {
-      alert(`
-        يرجى إدخال البريد الإلكتروني بشكل صحيح
-        يرجى إدخال كلمة المرور (على الأقل 8 أحرف)
-
-      `);
-    }
+    const errors = signInValidation(userData);
+    setErrors(errors);
+    const hasError = Object.values(errors).some((err) => err !== "");
+    if (hasError) return;
+    const userInfo = {
+      email: userData.userEmail,
+      name: null,
+      loggedIn: true,
+      userData: undefined,
+    };
+    localStorage.setItem("user", JSON.stringify(userInfo));
+    dispatch(login(userInfo));
+    navigate("/m");
   };
-
-  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>)=> {
-    const {id, value, type, checked} = e.target;
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value, type, checked } = e.target;
     setUserData((prev) => ({
       ...prev,
-      [id]: type === "checkbox" ? checked : value
-      }));
-  }
-
+      [id]: type === "checkbox" ? checked : value,
+    }));
+    setErrors((prev) => ({
+      ...prev,
+      [id]: "",
+    }));
+  };
   return (
     <>
       <div className={style.signin_container}>
@@ -86,9 +82,9 @@ export default function SignIn() {
               onChange={changeHandler}
               placeholder="ادخل البريد الالكتروني"
               img={{ src: emailIcon, alt: "Email Icon" }}
-              error="يرجى إدخال البريد الإلكتروني بشكل صحيح"
+              error={errors.userEmail}
             />
-            <br />
+
             <InputPasswordElement
               id="password"
               name="كلمة المرور"
@@ -96,27 +92,26 @@ export default function SignIn() {
               value={userData.password}
               onChange={changeHandler}
               placeholder="ادخل كلمة المرور"
-              error="يرجى إدخال كلمة المرور (على الأقل 8 أحرف)"
+              error={errors.password}
             />
             <br />
             <CheckboxElement
-              id= "rememberMe"
+              id="rememberMe"
               name=""
-              checked = {userData.rememberMe}
+              checked={userData.rememberMe}
               onChange={changeHandler}
-              label= "تذكرني"
-              tail= "هل نسيت كلمة المرور؟"
+              label="تذكرني"
+              tail="هل نسيت كلمة المرور؟"
               onClick={forGetPasswordHandler}
             />
             <div className={style.signin_btn}>
               <ButtonElement
-                className= {''}
+                className={""}
                 txt="تسجيل الدخول"
                 onClick={loginHandler}
                 variant="primary"
-                type= "button"
+                type="button"
               />
-              {/* <button onClick={loginHandler}>تسجيل الدخول</button> */}
             </div>
           </form>
           <PlatformAuth

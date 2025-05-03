@@ -38,18 +38,18 @@ export default function Profile() {
     setIsEditPersonalInfo(false);
   };
 
-  const changeHandler = (e: { target: { id: any; value: any; }; }) => {
+  const changeHandler = (e: { target: { id: any; value: any } }) => {
     const { id, value } = e.target;
     setTempData((prev) => ({
       ...prev,
-      [id]: value
+      [id]: value,
     }));
-  }
+  };
 
-  const navigate = useNavigate()
-  const changePasswordHandler = () =>{
-    navigate('/u/edit-password')
-  }
+  const navigate = useNavigate();
+  const changePasswordHandler = () => {
+    navigate("/u/edit-password");
+  };
   return (
     <>
       <div className={style.profile_container}>
@@ -73,7 +73,7 @@ export default function Profile() {
             {dropdown && (
               <div className={style.dropdown_container}>
                 <ul>
-                  <li >
+                  <li>
                     <span>
                       <img src={user} alt="" />
                     </span>
@@ -101,7 +101,7 @@ export default function Profile() {
                     name="الاسم"
                     type=""
                     placeholder="ادخل الإسم بالكامل"
-                    value= {tempData.fullName}
+                    value={tempData.fullName}
                     onChange={changeHandler}
                     label=""
                   />
@@ -110,7 +110,7 @@ export default function Profile() {
                     name="الرقم القومي"
                     type=""
                     placeholder="ادخل الرقم القومي"
-                    value= {tempData.id}
+                    value={tempData.id}
                     onChange={changeHandler}
                     label=""
                   />
@@ -119,7 +119,7 @@ export default function Profile() {
                     name="الوزن"
                     type=""
                     placeholder="ادخل وزنك"
-                    value= {tempData.weight}
+                    value={tempData.weight}
                     onChange={changeHandler}
                     label=""
                   />
@@ -139,7 +139,7 @@ export default function Profile() {
                     name="البريد الالكتروني"
                     type=""
                     placeholder="ادخل البريد الالكتروني"
-                    value= {tempData.email}
+                    value={tempData.email}
                     onChange={changeHandler}
                     label=""
                   />
@@ -154,10 +154,13 @@ export default function Profile() {
                   />
                 </div>
               </div>
-              
             </div>
             <div className={style.save_btn}>
-                <ButtonElement txt="حفظ التغيرات" onClick={saveHandler} className={style.save_btn}/>
+              <ButtonElement
+                txt="حفظ التغيرات"
+                onClick={saveHandler}
+                className={style.save_btn}
+              />
             </div>
           </>
         ) : (

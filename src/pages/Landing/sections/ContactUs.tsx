@@ -2,8 +2,8 @@
 import style from "../../../styles/pages/Landing/ContactUs.module.css";
 //  ** Assets
 import contactUsPhoto from "../../../assets/landing/ContactUs/contact-us.png";
-import userIcon from '../../../assets/ui/inputelement/user.png'
-import emailIcon from '../../../assets/ui/inputelement/email.png'
+import userIcon from "../../../assets/ui/inputelement/user.png";
+import emailIcon from "../../../assets/ui/inputelement/email.png";
 // ** Components
 import HeaderLanding from "../../../components/Landing/HeaderLanding";
 import InputElement from "../../../components/ui/InputElement";
@@ -12,36 +12,55 @@ import CheckboxElement from "../../../components/ui/CheckboxElement";
 import ButtonElement from "../../../components/ui/ButtonElement";
 // ** Hooks
 import { useState } from "react";
+// ** Validation
+import { contactValidation } from "../../../vaildation";
 
 // ** Interface
 interface ISection {
   sectionId: string;
 }
-
 export default function ContactUs({ sectionId }: ISection) {
-    const [formData, setFormData] = useState({
-        firstName: "",
-        secondName: "",
-        userEmail: "",
-        reportMsg: "",
-        isAgreed: false,
-    })
-
-    // ** Handelers
-    const changeHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    secondName: "",
+    userEmail: "",
+    reportMsg: "",
+    isAgreed: false,
+  });
+  const [errors, setErrors] = useState({
+    firstName: "",
+    secondName: "",
+    userEmail: "",
+    reportMsg: "",
+    isAgreed: "",
+  });
+  // ** Handelers
+  const changeHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { id, value, type } = e.target as HTMLInputElement;
     const checked = (e.target as HTMLInputElement).checked;
     setFormData((prev) => ({
-        ...prev,
-        [id]: type === "checkbox" ? checked : value,
+      ...prev,
+      [id]: type === "checkbox" ? checked : value,
     }));
-    };
 
-    const submitHandler = (e: React.FormEvent) => {
-        e.preventDefault()
-        console.log("Form submitted:", formData)
+    setErrors((prev) => ({
+      ...prev,
+      [id]: "",
+    }));
+  };
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    const errors = contactValidation(formData);
+    setErrors(errors);
+    const hasErrors = Object.values(errors).some((msg) => msg !== "");
+    if (hasErrors) {
+      console.warn("فيه أخطاء في البيانات");
+      return;
     }
-
+    console.log("Form Submitted", formData);
+  };
   return (
     <>
       <section className={style.section} id={sectionId}>
@@ -59,58 +78,58 @@ export default function ContactUs({ sectionId }: ISection) {
                     id="firstName"
                     name="الاسم الاول"
                     type="text"
-                    value= {formData.firstName}
+                    value={formData.firstName}
                     onChange={changeHandler}
                     img={{ src: userIcon, alt: "User Icon" }}
                     placeholder="ادخل الاسم الاول"
-                    error="يرجى ادخال الاسم الاول"
+                    error={errors.firstName}
                   />
                   <InputElement
                     id="secondName"
                     name="الاسم الثاني"
                     type="text"
-                    value= {formData.secondName}
+                    value={formData.secondName}
                     onChange={changeHandler}
                     img={{ src: userIcon, alt: "User Icon" }}
                     placeholder="ادخل الاسم الثاني"
-                    error="يرجى ادخال الاسم الثاني"
+                    error={errors.secondName}
                   />
                 </div>
-                <br />
+
                 <InputElement
                   id="userEmail"
                   name="البريد الالكتروني"
                   type="email"
-                  value= {formData.userEmail}
+                  value={formData.userEmail}
                   onChange={changeHandler}
                   img={{ src: emailIcon, alt: "Email Icon" }}
                   placeholder="ادخل البريد الالكتروني"
-                  error="يرجى إدخال البريد الإلكتروني بشكل صحيح"
+                  error={errors.userEmail}
                 />
-                <br />
+
                 <Textarea
                   id="reportMsg"
                   name="الرساله"
                   placeholder="اكتب رسالتك"
-                  value= {formData.reportMsg}
+                  value={formData.reportMsg}
                   onChange={changeHandler}
-                  error="يرجى ادخال رسالتك بشكل واضح"
+                  error={errors.reportMsg}
                 />
                 <CheckboxElement
                   id="isAgreed"
                   name=""
                   label={`انت توافق علي`}
                   sublabel="سياسه الخصوصيه الخاصه بينا"
-                  checked= {formData.isAgreed}
+                  checked={formData.isAgreed}
                   onChange={changeHandler}
-                  error=""
+                  // error= {errors.isAgreed}
                 />
                 <ButtonElement
                   className={style.button_send_mg}
                   txt="ارسال الرساله"
-                  onClick={()=>{}}
+                  onClick={() => {}}
                   variant="primary"
-                  type= 'submit'
+                  type="submit"
                 />
               </form>
               {/* ContactUsPhoto */}
