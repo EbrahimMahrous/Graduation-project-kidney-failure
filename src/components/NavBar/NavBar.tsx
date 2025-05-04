@@ -164,15 +164,30 @@ export default function NavBar() {
                     {isMenuOpen && (
                       <div className={style.menu_dropdown_settings}>
                         <ul>
-                          <li onClick={profileHandler}>
+                          <li
+                            onClick={() => {
+                              toggleNavbar();
+                              profileHandler();
+                            }}
+                          >
                             <span className={style.menuIcon}>👤</span>
                             <span>بروفايل</span>
                           </li>
-                          <li onClick={complaintsHandler}>
+                          <li
+                            onClick={() => {
+                              toggleNavbar();
+                              complaintsHandler();
+                            }}
+                          >
                             <span className={style.menuIcon}>⚠️</span>
                             <span>لشكاوي والاقتراحات</span>
                           </li>
-                          <li onClick={settingsHandler}>
+                          <li
+                            onClick={() => {
+                              toggleNavbar();
+                              settingsHandler();
+                            }}
+                          >
                             <span className={style.menuIcon}>⚙</span>
                             <span>الاعدادات</span>
                           </li>

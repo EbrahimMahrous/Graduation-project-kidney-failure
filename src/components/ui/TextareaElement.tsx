@@ -26,7 +26,7 @@ const TextareaElement = ({id, name, placeholder, value= '', onChange, error= ''}
                     onChange={onChange}
                     autoComplete= 'off'
                 ></textarea>
-                {error && <span className={style.error}>{error}</span>}
+                <span className={style.error}>{error}</span>
             </div>
         </>
     );

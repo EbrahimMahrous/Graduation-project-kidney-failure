@@ -66,7 +66,7 @@ export default function Complaints() {
         <div className={style.complaints_content}>
           <HeaderLanding
             title="لشكاوي والاقتراحات :"
-            description="نرحب بجميع الشكاوى والاقتراحات لتحسين خدماتنا وتلبية احتياجاتك بشكل أفض. يمكنك مشاركة أفكارك أو مشاكلك معنا بسهولة، وسنعمل جاهدين للرد عليك في أسرع وقت ممكن.لأن رأيك يهمنا ويساعدنا في تقديم تجربة أفضل للجميع."
+            description="نرحب بجميع الشكاوى والاقتراحات لتحسين خدماتنا وتلبية احتياجاتك بشكل أفضل وسنعمل جاهدين للرد عليك في أسرع وقت ممكن."
           />
           <div className={style.complaints_main}>
             <form className={style.complaints_form} onSubmit={submitHandler}>

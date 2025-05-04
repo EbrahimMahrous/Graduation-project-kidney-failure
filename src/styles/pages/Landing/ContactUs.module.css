@@ -52,6 +52,29 @@
 .contactUs_photo img {
     width: 550px;
 }
+/* Toast Styles */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--main-color-700);
+  color: var(--white-color);
+  padding: 16px 24px;
+  font-size: var(--font-p);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+/* Show Class */
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  bottom: 50px;
+}
 
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) {

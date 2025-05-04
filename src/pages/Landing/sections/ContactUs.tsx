@@ -14,6 +14,10 @@ import ButtonElement from "../../../components/ui/ButtonElement";
 import { useState } from "react";
 // ** Validation
 import { contactValidation } from "../../../vaildation";
+// ** Database
+import { databases, ID } from "../../../appwrite/config";
+import { Permission, Role } from "appwrite";
+import Toast from "../../../components/ui/Toast";
 
 // ** Interface
 interface ISection {
@@ -34,6 +38,9 @@ export default function ContactUs({ sectionId }: ISection) {
     reportMsg: "",
     isAgreed: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [showErrorToast, setShowErrorToast] = useState(false);
   // ** Handelers
   const changeHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -50,16 +57,44 @@ export default function ContactUs({ sectionId }: ISection) {
       [id]: "",
     }));
   };
-  const submitHandler = (e: React.FormEvent) => {
+
+  const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
-    const errors = contactValidation(formData);
-    setErrors(errors);
-    const hasErrors = Object.values(errors).some((msg) => msg !== "");
-    if (hasErrors) {
-      console.warn("فيه أخطاء في البيانات");
+    const validationErrors = contactValidation(formData);
+    const isValid = Object.values(validationErrors).every((err) => err === "");
+    if (!isValid) {
+      setErrors(validationErrors);
       return;
     }
-    console.log("Form Submitted", formData);
+    setLoading(true);
+    try {
+      await databases.createDocument(
+        "681760f000081d082539",
+        "6817662600375221a68e",
+        ID.unique(),
+        {
+          firstName: formData.firstName,
+          secondName: formData.secondName,
+          userEmail: formData.userEmail,
+          reportMsg: formData.reportMsg,
+          isAgreed: formData.isAgreed,
+        },
+        [Permission.read(Role.any())]
+      );
+      setShowToast(true);
+      setFormData({
+        firstName: "",
+        secondName: "",
+        userEmail: "",
+        reportMsg: "",
+        isAgreed: false,
+      });
+    } catch (error: any) {
+      setShowErrorToast(true);
+      console.log(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <>
@@ -68,7 +103,7 @@ export default function ContactUs({ sectionId }: ISection) {
           <div className={style.contactUs_content}>
             <HeaderLanding
               title="تواصل معانا"
-              description="سواء كان لديك استفسار حول خدماتنا، أو تحتاج إلى مساعدة في استخدام المنصة، نحن هنا لدعمك. فريقنا مستعد للرد على أسئلتك وتقديم المساعدة اللازمة لضمان تجربة سلسة ومريحة."
+              description="نرحب بجميع الشكاوى والاقتراحات لتحسين خدماتنا وتلبية احتياجاتك بشكل أفضل وسنعمل جاهدين للرد عليك في أسرع وقت ممكن."
             />
             {/* Bottom */}
             <div className={style.contactUs_main}>
@@ -114,9 +149,8 @@ export default function ContactUs({ sectionId }: ISection) {
                   value={formData.reportMsg}
                   onChange={changeHandler}
                   error={errors.reportMsg}
-                  
                 />
-                
+
                 <CheckboxElement
                   id="isAgreed"
                   name=""
@@ -124,14 +158,15 @@ export default function ContactUs({ sectionId }: ISection) {
                   sublabel="سياسه الخصوصيه الخاصه بينا"
                   checked={formData.isAgreed}
                   onChange={changeHandler}
-                  // error= {errors.isAgreed}
+                  error={errors.isAgreed}
                 />
                 <ButtonElement
                   className={style.button_send_mg}
-                  txt="ارسال الرساله"
+                  txt={loading ? "جاري الإرسال..." : "ارسال الرساله"}
                   onClick={() => {}}
                   variant="primary"
                   type="submit"
+                  disabled={loading}
                 />
               </form>
               {/* ContactUsPhoto */}
@@ -141,6 +176,18 @@ export default function ContactUs({ sectionId }: ISection) {
             </div>
           </div>
         </div>
+        <Toast
+          message="تم إرسال الرسالة بنجاح!"
+          show={showToast}
+          onClose={() => setShowToast(false)}
+          type="success"
+        />
+        <Toast
+          message="حصل خطأ أثناء الإرسال!"
+          show={showErrorToast}
+          onClose={() => setShowErrorToast(false)}
+          type="error"
+        />
       </section>
     </>
   );

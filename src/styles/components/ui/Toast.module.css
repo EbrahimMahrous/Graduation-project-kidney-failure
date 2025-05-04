@@ -1,0 +1,51 @@
+/* Start Variables  */
+
+:root {
+  --main-color-700: #026aa2;
+  --second-color: #dff1fe;
+  --red-color: #ff0000d2;
+  --gray-color-400: #afafaf;
+  --gray-color-700: #515151;
+  --gray-color-800: #373737;
+  --gray-color-900: #282828;
+  --white-color: #fff;
+  --font-lable: 1rem;
+  --font-p: 1.25rem;
+  --txt-btn: 1rem;
+  --font-h3: 1.625rem;
+  --font-h4: 1.3rem;
+}
+/* End Variables */
+
+/* Base Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+  z-index: 9999;
+  color: var(--white-color);
+}
+
+/* Show Toast */
+.show {
+  opacity: 1;
+  pointer-events: auto;
+  bottom: 50px;
+}
+
+/* Toast Types */
+.success {
+  background-color: var(--main-color-700);
+}
+
+.error {
+  background-color: var(--red-color);
+}

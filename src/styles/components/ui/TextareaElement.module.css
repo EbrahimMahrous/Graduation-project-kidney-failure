@@ -40,14 +40,15 @@
   outline: 1px solid var(--main-color-700);
 }
 .error {
+  display: block;
   font-weight: bold;
   font-size: var(--font-p);
   color: var(--red-color);
   font-size: 12px;
-  line-height: 8px;
-  margin: -5px 0px 8px 0px;
+  min-height: 16px;
+  line-height: 16px;
+  margin-top: -5px;
 }
-
 /* Extra small devices (phones, portrait) */
 @media (max-width: 575.98px) {
   .input_placeholder textarea {

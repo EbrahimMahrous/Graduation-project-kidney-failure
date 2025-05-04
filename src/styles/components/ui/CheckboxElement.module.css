@@ -1,93 +1,96 @@
-
-
 /* Start Variables */
-:root
-{
-    --main-color-700: #026AA2;
-    --second-color: #EFF9FF;
-    --red-color: #ff0000d2;
-    --gray-color-400: #AFAFAF;
-    --gray-color-700: #515151;
-    --gray-color-800: #373737;
-    --gray-color-900: #282828;
-    --white-color: #fff;
-    --font-lable: 1rem;
-    --font-p: 1.25rem;
-    --txt-btn: 1rem;
-    --font-h3: 1.625rem;
-    --font-h4: 1.3rem;
+:root {
+  --main-color-700: #026aa2;
+  --second-color: #eff9ff;
+  --red-color: #ff0000d2;
+  --gray-color-400: #afafaf;
+  --gray-color-700: #515151;
+  --gray-color-800: #373737;
+  --gray-color-900: #282828;
+  --white-color: #fff;
+  --font-lable: 1rem;
+  --font-p: 1.25rem;
+  --txt-btn: 1rem;
+  --font-h3: 1.625rem;
+  --font-h4: 1.3rem;
 }
 /* End Variables */
 
-
-
-
-
-
 /* Start Input Element */
-.input_checkbox_content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.input_checkbox_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.input_checkbox{
-    display: flex;
-    align-items: center;
+.input_checkbox {
+  display: flex;
+  align-items: center;
 }
-.input_checkbox input{
-    border: 1px solid var(--main-color-700);
-    margin-left: 12px;
-    cursor: pointer;
+.input_checkbox input {
+  border: 1px solid var(--main-color-700);
+  margin-left: 12px;
+  cursor: pointer;
 }
-.input_checkbox label{
+.input_checkbox label {
+  font-size: var(--font-p);
+  cursor: pointer;
+}
+.input_checkbox label a {
+  color: var(--main-color-700);
+  text-decoration: none;
+}
+.input_checkbox_content p {
+  cursor: pointer;
+  color: var(--gray-color-700);
+  font-size: 0.8rem;
+}
+/* .error {
+  font-weight: bold;
+  font-size: var(--font-p);
+  color: var(--red-color);
+  font-size: 12px;
+  line-height: 8px;
+  margin: -5px 0px 8px 0px;
+} */
+.error {
+    display: block;
+    font-weight: bold;
     font-size: var(--font-p);
-    /* color: var(--main-color-700); */
-    cursor: pointer;
-}
-.input_checkbox label a{
-    color: var(--main-color-700);
-    text-decoration: none;
-}
-.input_checkbox_content p{
-    cursor: pointer;
-    color: var(--gray-color-700);
-    font-size: 0.8rem;
-}
-
-
+    color: var(--red-color);
+    font-size: 12px;
+    min-height: 16px; /* تخصيص الحد الأدنى للمسافة */
+    line-height: 16px; /* محاذاة النص */
+    margin-top: 5px;
+  }
+  
 /* Extra small devices (phones, portrait) */
-@media (max-width: 575.98px) 
-{
-    .input_checkbox label{
-        font-size: 1rem;
-    }
+@media (max-width: 575.98px) {
+  .input_checkbox label {
+    font-size: 1rem;
+  }
 }
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) 
-{
-    .input_checkbox label{
-        font-size: 1rem;
-    }
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .input_checkbox label {
+    font-size: 1rem;
+  }
 }
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) 
-{
-    .input_checkbox label{
-        font-size: 1rem;
-    }
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .input_checkbox label {
+    font-size: 1rem;
+  }
 }
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) 
-{
-    .input_checkbox label{
-        font-size: 1rem;
-    }
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .input_checkbox label {
+    font-size: 1rem;
+  }
 }
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) 
-{
-    .input_checkbox label{
-        font-size: 1rem;
-    }
+@media (min-width: 1200px) {
+  .input_checkbox label {
+    font-size: 1rem;
+  }
 }
 /* End Input Element */
