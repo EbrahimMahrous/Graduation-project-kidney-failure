@@ -1,24 +1,25 @@
 // ** Style
-import style from "../../styles/pages/main/DoctorDetails.module.css";
+import style from "../../styles/pages/main/BookingDoctor.module.css";
 // ** Hooks
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMemo, useState } from "react";
 // ** Data
 import { doctors } from "../../data";
 // ** Interface
 import { IDoctorProps } from "../../interfaces";
 // Assets
-import star from "../../assets/main/DoctorDetails/star.png";
-import specialization from "../../assets/main/DoctorDetails/specialization.png";
-import location from "../../assets/main/DoctorDetails/location.png";
-import price from "../../assets/main/DoctorDetails/price.png";
-import chat from "../../assets/main/DoctorDetails/chat.png";
-import waitTime from "../../assets/main/DoctorDetails/wait.png";
-import phone from "../../assets/main/DoctorDetails/phone.png";
+import star from "../../assets/main/BookingDoctor/star.png";
+import specialization from "../../assets/main/BookingDoctor/specialization.png";
+import location from "../../assets/main/BookingDoctor/location.png";
+import price from "../../assets/main/BookingDoctor/price.png";
+import chat from "../../assets/main/BookingDoctor/chat.png";
+import waitTime from "../../assets/main/BookingDoctor/wait.png";
+import phone from "../../assets/main/BookingDoctor/phone.png";
 // ** Components
-import BookingDetails from "./BookingModal";
+import BookingDetails from "../../components/ui/BookingModal";
 
-export default function DoctorDetails() {
+export default function BookingDoctor() {
+  const navigate = useNavigate()
   // ** States
   const { id } = useParams<{ id: string }>();
   const allDoctors = useMemo(
@@ -119,7 +120,7 @@ export default function DoctorDetails() {
                 </div>
                 <div>
                   <img src={chat} alt="" />
-                  لتواصل شات مجاناً اضغط<span>(هنا)</span>
+                  لتواصل شات مجاناً اضغط<span className= {style.chat_to_doctor} onClick={()=> navigate("/m/chat/patient")}>(هنا)</span>
                 </div>
                 <div>
                   <img src={waitTime} alt="" />

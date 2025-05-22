@@ -19,10 +19,10 @@ import { login } from "../../App/slices/userSlice";
 import { signInValidation } from "../../vaildation";
 
 export default function SignIn() {
+  // ** States
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
-
   const [userData, setUserData] = useState({
     userEmail: "",
     password: "",
@@ -33,30 +33,48 @@ export default function SignIn() {
     password: "",
     rememberMe: "",
   });
-
   // ** Handelers
-  const forGetPasswordHandler = () => {
-    navigate("/u/forget-password");
-  };
-  const signUpHandler = () => {
-    navigate("/u/sign-up");
-  };
   const loginHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
     const errors = signInValidation(userData);
     setErrors(errors);
     const hasError = Object.values(errors).some((err) => err !== "");
+
+    if (
+      userData.password.length <= 8 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userData.userEmail)
+    ) {
+      alert(`
+        يرجى إدخال البريد الإلكتروني بشكل صحيح
+        يرجى إدخال كلمة المرور (على الأقل 8 أحرف)
+      `);
+      return;
+    }
+
     if (hasError) return;
+
+    let role: "guest" | "patient" | "doctor" | "admin" = "guest";
+    if (userData.userEmail === "admin@gmail.com") role = "admin";
+    else if (userData.userEmail === "doctor@gmail.com") role = "doctor";
+    else role = "patient";
+
     const userInfo = {
       email: userData.userEmail,
       name: null,
       loggedIn: true,
       userData: undefined,
+      role,
     };
+
     localStorage.setItem("user", JSON.stringify(userInfo));
     dispatch(login(userInfo));
-    navigate("/m");
+    setIsLoading(true);
+    if (role === "admin") navigate("/a");
+    else if (role === "doctor") navigate("/m");
+    else navigate("/m");
   };
+
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value, type, checked } = e.target;
     setUserData((prev) => ({
@@ -84,7 +102,6 @@ export default function SignIn() {
               img={{ src: emailIcon, alt: "Email Icon" }}
               error={errors.userEmail}
             />
-
             <InputPasswordElement
               id="password"
               name="كلمة المرور"
@@ -102,13 +119,16 @@ export default function SignIn() {
               onChange={changeHandler}
               label="تذكرني"
               tail="هل نسيت كلمة المرور؟"
-              onClick={forGetPasswordHandler}
+              onClick={() => {
+                navigate("/u/forget-password");
+              }}
             />
             <div className={style.signin_btn}>
               <ButtonElement
                 className={""}
-                txt="تسجيل الدخول"
+                txt={isLoading ? "جاري التسجيل..." : "تسجيل دخول"}
                 onClick={loginHandler}
+                disabled={isLoading}
                 variant="primary"
                 type="button"
               />
@@ -118,7 +138,9 @@ export default function SignIn() {
             title="او انشاء حساب باستخدام"
             tail="ليس لديك حساب؟"
             subTail="انشاء حساب"
-            onSubTailClick={signUpHandler}
+            onSubTailClick={() => {
+              navigate("/u/sign-up");
+            }}
           />
         </div>
       </div>

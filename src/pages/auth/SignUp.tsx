@@ -5,6 +5,7 @@ import InputElement from "../../components/ui/InputElement";
 import HeaderAuth from "../../components/auth/HeaderAuth";
 import PlatformAuth from "../../components/auth/PlatformAuth";
 import InputPasswordElement from "../../components/ui/InputPasswordElement";
+import ButtonElement from "../../components/ui/ButtonElement";
 // ** Hooks
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -17,17 +18,18 @@ import nextIcon from "../../assets/auth/signup/next-icon.png";
 import emailIcon from "../../assets/auth/signup/email.png";
 import arrowIcon from "../../assets/auth/signup/arrow-down.png";
 import arrowUpDownlIcon from "../../assets/auth/signup/arrow-up-down.png";
-import ButtonElement from "../../components/ui/ButtonElement";
 // ** Validation
 import {
   signUpValidationPage1,
   signUpValidationPage2,
   signUpValidationPage3,
 } from "../../vaildation";
+
 export default function SignUp() {
   // ** Defaults
   const navigate = useNavigate();
   // ** States
+  const [isLoading, setIsLoading] = useState(false);
   const [currentSignUpPage, setCurrentSignUpPage] = useState<number>(1);
   const [userData, setUserData] = useState({
     userName: "",
@@ -61,7 +63,6 @@ export default function SignUp() {
   // ** Handlers
   const nextSignUpPageHandler = () => {
     let validationErrors = {};
-
     if (currentSignUpPage === 1) {
       validationErrors = signUpValidationPage1(userData);
     } else if (currentSignUpPage === 2) {
@@ -82,10 +83,6 @@ export default function SignUp() {
       setCurrentSignUpPage(currentSignUpPage - 1);
     }
   };
-
-  const signInHandler = () => {
-    navigate("/u/sign-in");
-  };
   const otpHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const validationErrors = signUpValidationPage3(userData);
@@ -97,23 +94,20 @@ export default function SignUp() {
       return;
     }
     console.log("userSignUpData", userData);
+    setIsLoading(true);
     navigate("/u/otp");
   };
-
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-
     setUserData((prev) => ({
       ...prev,
       [id]: value,
     }));
-
     setErrors((prev) => ({
       ...prev,
       [id]: "",
     }));
   };
-
   const signUpPage1Content = (
     <div className={style.sign_up_container}>
       <div className={style.sign_up_content}>
@@ -128,7 +122,6 @@ export default function SignUp() {
           img={{ src: UserIcon, alt: "User Icon" }}
           error={errors.userName}
         />
-
         <InputElement
           id="userId"
           name="الرقم القومي"
@@ -139,7 +132,6 @@ export default function SignUp() {
           img={{ src: IdIcon, alt: "working..." }}
           error={errors.userId}
         />
-
         <InputElement
           id="userPhoneNumber"
           name="رقم الهاتف"
@@ -150,7 +142,6 @@ export default function SignUp() {
           img={{ src: PhoneIcon, alt: "Phone Icon" }}
           error={errors.userPhoneNumber}
         />
-
         <ButtonElement
           className={style.next_button}
           txt="التالي"
@@ -162,7 +153,9 @@ export default function SignUp() {
           title="او انشاء حساب باستخدام"
           tail="هل لديك حساب؟ "
           subTail="تسجيل الدخول"
-          onSubTailClick={signInHandler}
+          onSubTailClick={() => {
+            navigate("/u/sign-in");
+          }}
         />
       </div>
     </div>
@@ -181,7 +174,6 @@ export default function SignUp() {
           img={{ src: emailIcon, alt: "Email Icon" }}
           error={errors.userEmail}
         />
-
         <InputPasswordElement
           id="password"
           name="كلمه المرور"
@@ -191,7 +183,6 @@ export default function SignUp() {
           placeholder="ادخل كلمه المرور"
           error={errors.password}
         />
-
         <InputPasswordElement
           id="confirmPassword"
           name="تأكيد كلمة المرور"
@@ -201,7 +192,6 @@ export default function SignUp() {
           placeholder="أعد ادخل كلمة المرور"
           error={errors.confirmPassword}
         />
-
         <ButtonElement
           className={style.next_button}
           txt="التالي"
@@ -213,7 +203,9 @@ export default function SignUp() {
           title="او تسيجل الدخول باستخدام"
           tail="هل لديك حساب؟"
           subTail="تسجيل الدخول"
-          onSubTailClick={signInHandler}
+          onSubTailClick={() => {
+            navigate("/u/sign-in");
+          }}
         />
       </div>
     </div>
@@ -266,7 +258,6 @@ export default function SignUp() {
           img={{ src: arrowUpDownlIcon, alt: "Weight Icon" }}
           error={errors.weight}
         />
-
         {/* 3 */}
         <InputElement
           id="height"
@@ -313,7 +304,6 @@ export default function SignUp() {
           </span>
         </div>
         {/* 5 */}
-
         <InputElement
           id="diagnosisDate"
           name="تاريخ التشخيص"
@@ -338,8 +328,9 @@ export default function SignUp() {
         />
         <ButtonElement
           className={style.sign_up_button}
-          txt="انشاء حساب"
+          txt={isLoading ? "جاري انشاء حساب..." : "انشاء حساب"}
           onClick={otpHandler}
+          disabled={isLoading}
           variant="primary"
           type="submit"
         />
@@ -352,14 +343,11 @@ export default function SignUp() {
         {currentSignUpPage === 1 && signUpPage1Content}
         {currentSignUpPage === 2 && signUpPage2Content}
         {currentSignUpPage === 3 && signUpPage3Content}
-
         <div className={style.sign_up_footer_content}>
           <div className={style.sign_up_arrow} onClick={nextSignUpPageHandler}>
             <img src={nextIcon} alt="Next Icon" />
           </div>
-
           <h3>صفحه {currentSignUpPage} من 3</h3>
-
           <div className={style.sign_up_arrow} onClick={prevSignUpPageHandler}>
             <img src={prevIcon} alt="Prev Icon" />
           </div>

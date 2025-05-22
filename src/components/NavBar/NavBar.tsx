@@ -23,10 +23,9 @@ export default function NavBar() {
   const userLogged = useSelector(
     (state: RootState) => state.userLogin.loggedIn
   );
+  const userRole = useSelector((state: RootState) => state.userLogin.role);
   const dispatch: AppDispatch = useDispatch();
-
   const navigate = useNavigate();
-
   // Handlers
   const signInHandler = () => {
     navigate("/u/sign-in");
@@ -34,19 +33,16 @@ export default function NavBar() {
   const signUpHandler = () => {
     navigate("/u/sign-up");
   };
-
   // ** States
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [activeItem, setActiveItem] = useState<string>("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeButton, setActiveButton] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setActiveButton(!activeButton);
   };
-
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleNavbar = () => {
     if (!navOpen && menuRef.current && window.innerWidth < 992) {
@@ -57,7 +53,6 @@ export default function NavBar() {
       setNavOpen(false);
     }
   };
-
   const smoothScrollHandler = (id: string) => {
     const sectionId = document.getElementById(id);
     if (sectionId) {
@@ -66,29 +61,23 @@ export default function NavBar() {
       toggleNavbar();
     }
   };
-
   const logOutHandler = () => {
     dispatch(logout());
     navigate("/");
   };
-
   const navigateNavbar = (id: string) => {
     setActiveItem(id);
     navigate(id ? `/m/${id}` : "/m");
   };
-
   const complaintsHandler = () => {
     navigate("/m/complaints");
   };
-
   const profileHandler = () => {
     navigate("/m/profile");
   };
-
   const settingsHandler = () => {
     navigate("/m/settings");
   };
-
   return (
     <>
       <nav>
@@ -99,8 +88,44 @@ export default function NavBar() {
           <div onClick={toggleNavbar} className={style.mobile_menu}>
             <img src={menu} alt="menu icon navbar" />
           </div>
+
           <div className={style.menu} ref={menuRef}>
-            {userLogged ? (
+            {/* Done */}
+            {!userLogged && userRole === "guest" && (
+              <ul>
+                {[
+                  { id: "about-us", label: "نبذة عنّا" },
+                  { id: "join-us", label: "انضم لنا" },
+                  { id: "our-services", label: "خدمتنا" },
+                  { id: "contact-us", label: "تواصل معنا" },
+                  { id: "patient-reviews", label: "تقييمات المستخدمين" },
+                ].map((item) => (
+                  <li
+                    key={item.id}
+                    onClick={() => smoothScrollHandler(item.id)}
+                    className={`${activeItem === item.id ? style.active : ""}`}
+                  >
+                    {item.label}
+                  </li>
+                ))}
+                <>
+                  <div className={style.menu_btns}>
+                    <ButtonElement
+                      txt="إنشاء حساب"
+                      onClick={signUpHandler}
+                      variant="primary"
+                    />
+                    <ButtonElement
+                      txt="تسجيل دخول"
+                      onClick={signInHandler}
+                      variant="secondary"
+                    />
+                  </div>
+                </>
+              </ul>
+            )}
+            {/* Done */}
+            {userLogged && userRole === "patient" && (
               <ul>
                 {[
                   { id: "", label: "الرئيسيه" },
@@ -197,41 +222,110 @@ export default function NavBar() {
                   </div>
                 </>
               </ul>
-            ) : (
+            )}
+            {/* Done */}
+            {userLogged && userRole === "doctor" && (
               <ul>
                 {[
-                  { id: "about-us", label: "نبذة عنّا" },
-                  { id: "join-us", label: "انضم لنا" },
-                  { id: "our-services", label: "خدمتنا" },
-                  { id: "contact-us", label: "تواصل معنا" },
-                  { id: "patient-reviews", label: "تقييمات المستخدمين" },
+                  { id: "", label: "الرئيسيه" },
+                  { id: "chat/doctor", label: "المحادثات" },
+                  { id: "profile", label: "المرضي" },
                 ].map((item) => (
                   <li
                     key={item.id}
-                    onClick={() => smoothScrollHandler(item.id)}
+                    onClick={() => {
+                      navigateNavbar(item.id);
+                      toggleNavbar();
+                    }}
                     className={`${activeItem === item.id ? style.active : ""}`}
                   >
                     {item.label}
                   </li>
                 ))}
                 <>
-                  <div className={style.menu_btns}>
-                    <ButtonElement
-                      txt="إنشاء حساب"
-                      onClick={signUpHandler}
-                      variant="primary"
-                    />
-                    <ButtonElement
-                      txt="تسجيل دخول"
-                      onClick={signInHandler}
-                      variant="secondary"
-                    />
+                  <div className={`${style.menu_main_btns}`}>
+                    <button
+                      title="الاعدادات"
+                      className={`${style.userLoggedIcon} ${
+                        activeButton ? style.activeButton : ""
+                      }`}
+                      onClick={toggleMenu}
+                    >
+                      <img
+                        src={activeButton ? settingIconWhite : settingIcon}
+                        alt="setting Icon"
+                      />
+                    </button>
+                    <button
+                      title="تسجيل خروج"
+                      className={style.userLoggedIcon}
+                      onClick={logOutHandler}
+                    >
+                      <img src={logoutIcon} alt="logout Icon" />
+                    </button>
+
+                    {isMenuOpen && (
+                      <div className={style.menu_dropdown_settings}>
+                        <ul>
+                          <li
+                            onClick={() => {
+                              toggleNavbar();
+                              profileHandler();
+                            }}
+                          >
+                            <span className={style.menuIcon}>👤</span>
+                            <span>بروفايل</span>
+                          </li>
+                          <li
+                            onClick={() => {
+                              toggleNavbar();
+                              complaintsHandler();
+                            }}
+                          >
+                            <span className={style.menuIcon}>⚠️</span>
+                            <span>لشكاوي والاقتراحات</span>
+                          </li>
+                          <li
+                            onClick={() => {
+                              toggleNavbar();
+                              settingsHandler();
+                            }}
+                          >
+                            <span className={style.menuIcon}>⚙</span>
+                            <span>الاعدادات</span>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </>
               </ul>
             )}
+            {/*  */}
+            {userLogged && userRole === "admin" && (
+              <>
+                <h1>Hi</h1>
+              </>
+            )}
           </div>
-          {userLogged ? (
+
+          {/* Done */}
+          {!userLogged && userRole === "guest" && (
+            <div className={style.auth_btns}>
+              <ButtonElement
+                txt="إنشاء حساب"
+                onClick={signUpHandler}
+                variant="primary"
+              />
+              <ButtonElement
+                txt="تسجيل دخول"
+                onClick={signInHandler}
+                variant="secondary"
+              />
+            </div>
+          )}
+          {/* Done */}
+          {userLogged && userRole === "patient" && (
             <div className={style.auth_btns}>
               <button
                 title="الاعدادات"
@@ -245,7 +339,6 @@ export default function NavBar() {
                   alt="setting Icon"
                 />
               </button>
-
               <button
                 title="تسجيل خروج"
                 className={style.userLoggedIcon}
@@ -253,7 +346,6 @@ export default function NavBar() {
               >
                 <img src={logoutIcon} alt="logout Icon" />
               </button>
-
               {isMenuOpen && (
                 <div className={style.menu_dropdown_settings}>
                   <ul>
@@ -273,19 +365,54 @@ export default function NavBar() {
                 </div>
               )}
             </div>
-          ) : (
+          )}
+          {/* Done */}
+          {userLogged && userRole === "doctor" && (
             <div className={style.auth_btns}>
-              <ButtonElement
-                txt="إنشاء حساب"
-                onClick={signUpHandler}
-                variant="primary"
+            <button
+              title="الاعدادات"
+              className={`${style.userLoggedIcon} ${
+                activeButton ? style.activeButton : ""
+              }`}
+              onClick={toggleMenu}
+            >
+              <img
+                src={activeButton ? settingIconWhite : settingIcon}
+                alt="setting Icon"
               />
-              <ButtonElement
-                txt="تسجيل دخول"
-                onClick={signInHandler}
-                variant="secondary"
-              />
-            </div>
+            </button>
+            <button
+              title="تسجيل خروج"
+              className={style.userLoggedIcon}
+              onClick={logOutHandler}
+            >
+              <img src={logoutIcon} alt="logout Icon" />
+            </button>
+            {isMenuOpen && (
+              <div className={style.menu_dropdown_settings}>
+                <ul>
+                  <li onClick={profileHandler}>
+                    <span className={style.menuIcon}>👤</span>
+                    <span>بروفايل</span>
+                  </li>
+                  <li onClick={complaintsHandler}>
+                    <span className={style.menuIcon}>⚠️</span>
+                    <span>لشكاوي والاقتراحات</span>
+                  </li>
+                  <li onClick={settingsHandler}>
+                    <span className={style.menuIcon}>⚙</span>
+                    <span>الاعدادات</span>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+          )}
+          {/*  */}
+          {userLogged && userRole === "admin" && (
+            <>
+              <h1>Hi Admin</h1>
+            </>
           )}
         </div>
       </nav>

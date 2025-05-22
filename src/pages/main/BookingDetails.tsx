@@ -7,11 +7,11 @@ import { useLocation } from "react-router-dom";
 // ** Assets
 import bookingDetailsPhoto from "../../assets/main/BookingDetails/BookingDetailsPhoto.png";
 import download from "../../assets/main/BookingDetails/download.png";
-import specialization from "../../assets/main/DoctorDetails/specialization.png";
-import locationIcon from "../../assets/main/DoctorDetails/location.png";
-import priceIcon from "../../assets/main/DoctorDetails/price.png";
-import waitTimeIcon from "../../assets/main/DoctorDetails/wait.png";
-import phone from "../../assets/main/DoctorDetails/phone.png";
+import specialization from "../../assets/main/BookingDoctor/specialization.png";
+import locationIcon from "../../assets/main/BookingDoctor/location.png";
+import priceIcon from "../../assets/main/BookingDoctor/price.png";
+import waitTimeIcon from "../../assets/main/BookingDoctor/wait.png";
+import phone from "../../assets/main/BookingDoctor/phone.png";
 import calender from "../../assets/main/BookingDetails/calendar.png";
 import user from "../../assets/main/BookingDetails/calendar.png";
 

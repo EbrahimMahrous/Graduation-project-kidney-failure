@@ -81,6 +81,9 @@
   justify-content: center;
   gap: 16px;
 }
+.chat_to_doctor{
+  cursor: pointer;
+}
 .arrow {
   margin: auto;
   background-color: var(--second-color);

@@ -1,11 +1,11 @@
 // ** Style
-import style from "../../styles/pages/main/BookingModal.module.css";
+import style from "../../styles/components/ui/BookingModal.module.css";
 // ** State
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // ** Components
-import InputElement from "../../components/ui/InputElement";
-import ButtonElement from "../../components/ui/ButtonElement";
+import InputElement from "./InputElement";
+import ButtonElement from "./ButtonElement";
 // ** Assets
 import phone from "../../assets/main/BookingModal/phone-icon.png";
 import user from "../../assets/main/BookingModal/user.png";
@@ -17,9 +17,13 @@ type IBookingModalProps = {
   modal: boolean;
   setModal: (value: boolean) => void;
   doctor: IDoctorProps;
-}
+};
 
-export default function BookingModal({ modal, setModal, doctor }: IBookingModalProps) {
+export default function BookingModal({
+  modal,
+  setModal,
+  doctor,
+}: IBookingModalProps) {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [successModal, setSuccessModal] = useState(false);

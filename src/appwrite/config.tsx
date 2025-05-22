@@ -12,7 +12,3 @@ const databases = new Databases(client);
 
 // Export client & databases for use in your app
 export { client, databases, ID };
-
-// API Endpoint ==> https://fra.cloud.appwrite.io/v1
-// Project ID ==> 68175c2000254e7a5283
-// Database ID ==> 681760f000081d082539
